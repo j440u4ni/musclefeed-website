@@ -1,0 +1,64 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~antd/dist/antd.min.css';
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+@import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
+@import '~animate.css/animate.min.css';
+@import '../fonts/Brandon\ Grotesque/style.css';
+@import '../fonts/DIN\ Pro/style.css';
+
+.admin-header { height: 40px; background: #ffffff; }
+.user-header { height: 40px; background: transparent; }
+.admin-global-page { min-height: calc(100vh - 50px); background: #ffffff; }
+.user-global-page { min-height: calc(100vh - 50px); background: #ffffff; }
+.main-global-page { min-height: calc(100vh - 50px); background: transparent; }
+.button-shadow { -webkit-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); -moz-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); }
+.button-icon { position: relative; top: -3px; }
+.admin-drawer { max-width: 250px; }
+.admin-input, .admin-input::placeholder { font-size: 10px; color: #000000; font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; }
+.account-input { color: #000000; font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; }
+.account-input { background: #ffffff; -webkit-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); -moz-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); }
+.select-text { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 10px;  }
+.login-form { min-height: 350px; position: relative; top: 30vh; }
+.register-form { min-height: 350px; position: relative; top: 20vh; }
+.button-text { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px;  }
+
+.cover-account { width: 50%; position: relative; top: 20vh; }
+.account-links { font-size: 11px; position: relative; top: -10px; }
+.divider-account { position: relative; top: -20px; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 12px; }
+.account-button { position: relative; top: -25px; }
+.layout-container { background: #ffffff; }
+.layout-global { background: transparent; }
+
+.select-input { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; }
+.select-input { -webkit-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); -moz-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); }
+.select-option-input { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; }
+.ant-select-dropdown-menu-item-selected { font-weight: unset; }
+.button-add { width: 90%; height: 32px; position: relative; top: 2px; left: -5px; }
+.button-add-perfume { max-width: 53px; height: 30px; position: relative; top: 2px; left: 0px; }
+.button-add-weight { width: 53px; height: 30px; }
+.select-perfume-box { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; position: relative; top: -2px; }
+.perfume-b { height: 14px; }
+.price-input { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 10px; }
+.price-input input { height: 27px; font-size: 11px;}
+.price-input input::placeholder { position: relative; top: -2px; }
+
+.header-container { position: relative; top: 0px; height: 40px; }
+.button-text-dashboard { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 12px; }
+.dashboard-link:hover { text-decoration: none; }
+.file-input { position: relative; top: 5px; right: 3px; }
+.brand-site { width: 111px; }
+.home-link { color: #000000; text-transform: uppercase; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif !important; font-size: 11px; }
+.home-link:hover { color: #000000; }
+.divider-main { position: relative; top: 2px; height: 20px; }
+.icon-home { position: relative; top: 2px; }
+.button-link { border: 2px solid #000000; border-radius: 10px; padding: 7px 9px; }
+.button-link { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04); }
+.button-shadow-link { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04); }
+
+.gallery-image { width: 100%; }
+.image-box-button { position: absolute; top: 40%; right: 32%; display: none; }
+.image-box-button-gr8 { position: absolute; top: 40%; right: 42%; display: none; } 
+.image-box:hover .image-box-button { display: inline-block; }
+.image-box:hover .image-box-button-gr8 { display: inline-block; }
+.image-box-icon { position: relative; left: 4px; }
+.arrow-button { width: 52px; }
