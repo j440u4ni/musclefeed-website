@@ -26,11 +26,13 @@ class ProductController extends Controller
     }
 
     public function categoryAdd(Request $request) {
-        try { $validator = Validator::make($request->all(), [ 'name' => 'required|string|min:4', 'description' => 'required|string|min:4' ]);
+        try { $validator = Validator::make($request->all(), [ 'name' => 'required|string|min:4', 'description' => 'required|string|min:4', 'parent' => 'required' ]);
             if($validator->fails()) { return response()->json(['error' => $validator->errors()->first()], 201); }
             $category = new Category;
                 $category->name = $request->input('name'); $category->description = $request->input('description'); 
-                $category->category_id = $request->input('parent'); $category->save();
+                $category->category_id = $request->input('parent');     
+                    if($request->exists('image') && $request->input('image') !== 0) { $category->image_id = $request->input('image'); }
+                    $category->save();
             return response()->json(['success' => true ], 200);
         } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
     }
@@ -86,6 +88,13 @@ class ProductController extends Controller
             if($validator->fails()) { return response()->json(['error' => $validator->errors()->first()], 201); }
             Image::where(['id' => $request->input('id')])->update(['slideshow' => true]);
             return response()->json(['success' => true, 'images' => Image::all()->toArray()], 200);
+        } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
+    }
+
+    public function productAdd(Request $request) {
+        try { $validator = Validator::make($request->all(), ['name' => 'required|string|unique:products', 'provider' => 'required|string', 'description_title' => 'required|string|unique:products', 'quantity' => 'required', 'description' => 'required|string', 'details' => 'required|string', 'category' => 'required', 'image' => 'required' ]);
+             if($validator->fails()) { return response()->json(['error' => $validator->errors()->first()], 201); }
+             return response()->json(['success' => true], 200);
         } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
     }
 }

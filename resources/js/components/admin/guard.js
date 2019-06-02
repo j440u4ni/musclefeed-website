@@ -29,10 +29,12 @@ class Guard extends Component {
                     <Header className="user-header"></Header>
                     <Layout className="user-global-page mt-0">
                         <div className="container-fluid d-flex flex-row justify-content-center align-items-center mt-2">
-                            <div className="col-2 mx-auto d-flex flex-column login-form">
-                                <Input type="text" placeholder="E-mail" className="account-input" onChange={this.onEmail} />
-                                <Input.Password size="default" placeholder="Mot de passe" className="account-input mt-1" onChange={this.onPassword} />
-                                <Button intent="primary" loading={this.state.loading} onClick={this.onConfirm} fill={true} text={<span className="button-text">Se connecter</span>} icon="send-to-graph" className="mt-4" />
+                            <div className="row w-100">
+                                <div className="col-2 col-lg-2 col-sm-12 col-md-3 mx-auto d-flex flex-column login-form">
+                                    <Input type="text" placeholder="E-mail" className="account-input" onChange={this.onEmail} />
+                                    <Input.Password size="default" placeholder="Mot de passe" className="account-input mt-1" onChange={this.onPassword} />
+                                    <Button intent="primary" loading={this.state.loading} onClick={this.onConfirm} fill={true} text={<span className="button-text">Se connecter</span>} icon="send-to-graph" className="mt-4" />
+                                </div>
                             </div>
                         </div>
                     </Layout>

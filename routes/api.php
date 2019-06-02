@@ -26,6 +26,7 @@ Route::group(['prefix' => 'v1/product'], function() {
     Route::post('/delete-image', 'API\ProductController@imageDelete')->middleware(['jwt.auth']);
 
     Route::post('/slideshow-image', 'API\ProductController@imageSlideshow')->middleware(['jwt.auth']);
+    Route::post('/add-product', 'API\ProductController@productAdd')->middleware(['jwt.auth']);
 });
 
 Route::group(['prefix' => 'v1/account'], function() {

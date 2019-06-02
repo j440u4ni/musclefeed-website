@@ -17935,12 +17935,14 @@ a.text-dark:focus {
   min-height: 350px;
   position: relative;
   top: 30vh;
+  max-width: 250px;
 }
 
 .register-form {
   min-height: 350px;
   position: relative;
   top: 20vh;
+  max-width: 250px;
 }
 
 .button-text {
@@ -18128,19 +18130,22 @@ a.text-dark:focus {
 
 .gallery-image {
   width: 100%;
+  max-height: 130px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .image-box-button {
   position: absolute;
-  top: 40%;
+  top: 2%;
   right: 32%;
   display: none;
 }
 
 .image-box-button-gr8 {
   position: absolute;
-  top: 40%;
-  right: 42%;
+  top: 2%;
+  right: 40%;
   display: none;
 }
 
@@ -18159,5 +18164,24 @@ a.text-dark:focus {
 
 .arrow-button {
   width: 52px;
+}
+
+.editor-box {
+  font-family: "DIN Pro Medium", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.editor-box {
+  resize: none;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 144px) {
+  .login-form {
+    min-width: 100%;
+  }
+
+  .register-form {
+    min-width: 100%;
+  }
 }
 

@@ -18,8 +18,8 @@
 .account-input { color: #000000; font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; }
 .account-input { background: #ffffff; -webkit-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); -moz-box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); box-shadow: 6px 10px 23px -15px rgba(0,0,0,0.43); }
 .select-text { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 10px;  }
-.login-form { min-height: 350px; position: relative; top: 30vh; }
-.register-form { min-height: 350px; position: relative; top: 20vh; }
+.login-form { min-height: 350px; position: relative; top: 30vh; max-width: 250px; }
+.register-form { min-height: 350px; position: relative; top: 20vh; max-width: 250px; }
 .button-text { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px;  }
 
 .cover-account { width: 50%; position: relative; top: 20vh; }
@@ -55,10 +55,17 @@
 .button-link { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04); }
 .button-shadow-link { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04); }
 
-.gallery-image { width: 100%; }
-.image-box-button { position: absolute; top: 40%; right: 32%; display: none; }
-.image-box-button-gr8 { position: absolute; top: 40%; right: 42%; display: none; } 
+.gallery-image { width: 100%; max-height: 130px; object-fit: contain; }
+.image-box-button { position: absolute; top: 2%; right: 32%; display: none; }
+.image-box-button-gr8 { position: absolute; top: 2%; right: 40%; display: none; } 
 .image-box:hover .image-box-button { display: inline-block; }
 .image-box:hover .image-box-button-gr8 { display: inline-block; }
 .image-box-icon { position: relative; left: 4px; }
 .arrow-button { width: 52px; }
+.editor-box { font-family: 'DIN Pro Medium', Arial, Helvetica, sans-serif; font-size: 13px; }
+.editor-box { resize: none; }
+
+@media only screen and (max-width: 1024px) and (min-width: 144px) {
+    .login-form { min-width: 100%; }
+    .register-form { min-width: 100%; }
+}

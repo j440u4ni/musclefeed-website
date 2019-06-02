@@ -21,10 +21,10 @@ export function productSpecifics() {
     function failure() { return { type: constantsProducts.fetchSpecificsFailure }; }
 }
 
-export function addCategory(name, description, parent, stop) {
+export function addCategory(name, description, parent, image, stop) {
     return (dispatch) => { const token = localStorage.getItem('user-token');
-        fetch('https://musclefeed.co/api/v1/product/add-category', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, description, parent }) }).then((first) => { return first.json(); })
-            .then((second) => {
+        fetch('https://musclefeed.co/api/v1/product/add-category', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, description, parent, image }) }).then((first) => { return first.json(); })
+            .then((second) => { console.log(second);
                 if(!second.hasOwnProperty('success')) { dispatch(failure()); stop(); }
                 else { dispatch(success()); window.location.reload(); }
             });
@@ -91,4 +91,16 @@ export function slideshowImage(id) {
 
     function success(images) { return { type: constantsProducts.slideshowProductImageSuccess, images }; }
     function failure() { return { type: constantsProducts.slideshowProductImageFailure }; }
+}
+export function addProduct(category, details, name, provider, title, quantity, image, description, stop) { 
+    return (dispatch) => { const token = localStorage.getItem('user-token'); 
+        fetch('https://musclefeed.co/api/v1/product/add-product', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, provider, description_title, quantity, description, details, category, image }) }).then((first) => { return first.json(); })
+            .then((second) => { console.log(second);
+                if(!second.hasOwnProperty('success')) { dispatch(failure()); message.error(<span className="button-text">Impossible d'ajouter le produit, vérifier sa disponibilité.</span>); stop(); }
+                else { dispatch(success(JSON.stringify(second.products))); localStorage.setItem('products', JSON.stringify(second.products)); window.location.reload(); }
+            });
+    }
+
+    function success(products) { return { type: constantsProducts.addProductSuccess, products }; }
+    function failure() { return { type: constantsProducts.addProductFailure }; }
 }

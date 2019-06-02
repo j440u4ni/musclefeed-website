@@ -32,10 +32,16 @@
         "animate.css": "^3.7.1",
         "antd": "^3.19.1",
         "history": "^4.9.0",
+        "immutable": "^4.0.0-rc.12",
         "react-redux": "^7.0.3",
         "react-router-dom": "^5.0.0",
         "redux": "^4.0.1",
         "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "slate": "^0.47.3",
+        "slate-auto-replace": "^0.12.1",
+        "slate-collapse-on-escape": "^0.8.1",
+        "slate-lists": "^1.0.0",
+        "slate-react": "^0.22.3"
     }
 }

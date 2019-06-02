@@ -56,7 +56,7 @@ class Gallery extends Component {
             <React.Fragment>
                 <Layout>
                     <Header className="admin-header py-2">
-                        <div className="container-fluid d-flex flex-row align-items-center justify-content-center header-container">
+                        <div className="container d-flex flex-row align-items-center justify-content-center header-container">
                             <div className="col-3"></div>
                             <div className="col-9 justify-content-end d-flex flex-row py-1 align-items-center justify-content-center">
                                 <Link to="/dashboard" className="dashboard-link mr-2"><Button className="button-shadow-link"><span className="button-text-dashboard">Panneau de contrôle</span></Button></Link>
@@ -68,7 +68,7 @@ class Gallery extends Component {
                         </div>
                     </Header>
                     <Layout className="admin-global-page mt-0">
-                        <div className="container-fluid d-flex flex-column justify-content-center align-items-center mt-5">
+                        <div className="container d-flex flex-column justify-content-center align-items-center mt-5">
                             <div className="row d-flex flex-row align-items-center justify-content-center w-100">
                                 <FileInput text={<span className="button-text" style={{ color: '#ffffff' }}>Choisissez l'image.</span>} className="file-input mr-2 bp3-dark" onInputChange={this.onImage} />
                                 <BP intent="danger" icon="cube-add" loading={this.state.loading} onClick={this.onImageSubmit} text={<span className="button-text">Image</span>} className="" />
@@ -80,7 +80,7 @@ class Gallery extends Component {
                             <div className="row d-flex flex-row mt-2">
                             { !Array.isArray(this.state.images) && this.state.images.length <= 2 ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} /> : 
                                 this.state.images.slice(this.state.offset, this.state.next).map((item) => { return (<div className="col-2 mt-1" key={item.id}>
-                                    <Card interactive={true} key={item.id} elevation={Elevation.TWO} className="bp3-dark p-1 image-box">
+                                    <Card interactive={true} key={item.id} elevation={Elevation.TWO} className="p-1 image-box">
                                         <img src={'https://musclefeed.co/storage/'+item.url.split('/')[2]} className="gallery-image" />
                                         <ButtonGroup className={ item.slideshow !== 1 ? "image-box-button" : "image-box-button-gr8" } vertical={false}>
                                         <BP intent="danger" onClick={() => { this.onDelete(item.id); }} className="image-box-button"><BI icon="trash" className="image-box-icon" /></BP>
