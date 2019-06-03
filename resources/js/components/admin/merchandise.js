@@ -88,11 +88,11 @@ class Merchandise extends Component {
     onConfirm() { const { dispatch } = this.props; this.setState({ loading: true });
          dispatch(addProduct(this.state.selectedCategory, JSON.stringify([...this.state.selectedPerfumes, this.state.selectedPrices]), 
             this.state.productName, this.state.productProvider, 
-            this.state.productTitle, this.state.productTitle, 
+            this.state.productTitle, this.state.productQuantity, 
             this.state.productImage, this.state.productDescription, this.onStop));
     }
 
-    render() { console.log(this.state.productName);
+    render() {
         return(
             <React.Fragment>
                 <Layout>

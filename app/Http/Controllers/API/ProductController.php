@@ -11,17 +11,17 @@ use App\Data\Perfume;
 use App\Data\Category;
 use App\Data\Weight;
 use App\Data\Image;
+use App\Data\Product;
 use Storage;
 
 class ProductController extends Controller
 {
     public function specifics(Request $request) {
         try {
-            $perfumeCount = Perfume::all();
-            $weightCount = Weight::all();
-            $categoryCount = Category::all();
-            $imageCount = Image::all();
-            return response()->json(['success' => true, 'weights' => $weightCount, 'categories' => $categoryCount, 'perfumes' => $perfumeCount, 'images' => $imageCount], 200);
+            $perfumeCount = Perfume::all(); $weightCount = Weight::all();
+            $categoryCount = Category::all(); $imageCount = Image::all();
+            $productCount = Product::all();
+            return response()->json(['success' => true, 'weights' => $weightCount, 'categories' => $categoryCount, 'perfumes' => $perfumeCount, 'images' => $imageCount, 'products' => $productCount], 200);
         } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
     }
 
@@ -94,6 +94,14 @@ class ProductController extends Controller
     public function productAdd(Request $request) {
         try { $validator = Validator::make($request->all(), ['name' => 'required|string|unique:products', 'provider' => 'required|string', 'description_title' => 'required|string|unique:products', 'quantity' => 'required', 'description' => 'required|string', 'details' => 'required|string', 'category' => 'required', 'image' => 'required' ]);
              if($validator->fails()) { return response()->json(['error' => $validator->errors()->first()], 201); }
+             $product = new Product;
+                $product->name = $request->input('name'); $product->description_title = $request->input('description_title');
+                $product->provider = $request->input('provider'); $product->description_title = $request->input('description_title');
+                $product->url = str_slug($request->input('name')); $product->quantity = $request->input('quantity');
+                $product->description = $request->input('description'); $product->details = $request->input('details');
+                $product->category_id = $request->input('category'); $product->image_id = $request->input('image');
+                $product->sold = 0;
+                $product->save();
              return response()->json(['success' => true], 200);
         } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
     }

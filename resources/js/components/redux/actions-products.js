@@ -12,7 +12,8 @@ export function productSpecifics() {
                     localStorage.setItem('weights', JSON.stringify(second.weights));
                     localStorage.setItem('perfumes', JSON.stringify(second.perfumes));
                     localStorage.setItem('images', JSON.stringify(second.images));
-                    dispatch(success(JSON.stringify(second.weights), JSON.stringify(second.perfumes), JSON.stringify(second.categories), JSON.stringify(second.images))); 
+                    localStorage.setItem('products', JSON.stringify(second.products));
+                    dispatch(success(JSON.stringify(second.weights), JSON.stringify(second.perfumes), JSON.stringify(second.categories), JSON.stringify(second.images), JSON.stringify(second.products))); 
             }
             });
     };
@@ -94,7 +95,7 @@ export function slideshowImage(id) {
 }
 export function addProduct(category, details, name, provider, title, quantity, image, description, stop) { 
     return (dispatch) => { const token = localStorage.getItem('user-token'); 
-        fetch('https://musclefeed.co/api/v1/product/add-product', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, provider, description_title, quantity, description, details, category, image }) }).then((first) => { return first.json(); })
+        fetch('https://musclefeed.co/api/v1/product/add-product', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, provider, description_title: title, quantity, description, details, category, image }) }).then((first) => { return first.json(); })
             .then((second) => { console.log(second);
                 if(!second.hasOwnProperty('success')) { dispatch(failure()); message.error(<span className="button-text">Impossible d'ajouter le produit, vérifier sa disponibilité.</span>); stop(); }
                 else { dispatch(success(JSON.stringify(second.products))); localStorage.setItem('products', JSON.stringify(second.products)); window.location.reload(); }

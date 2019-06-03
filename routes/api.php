@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'v1/product'], function() {
-    Route::get('/all-specifics', 'API\ProductController@specifics')->middleware(['jwt.auth']); 
+    Route::get('/all-specifics', 'API\ProductController@specifics');
     Route::post('/add-perfume', 'API\ProductController@perfumeAdd')->middleware(['jwt.auth']); 
     Route::post('/add-category', 'API\ProductController@categoryAdd')->middleware(['jwt.auth']);
     Route::post('/add-weight', 'API\ProductController@weightAdd')->middleware(['jwt.auth']);

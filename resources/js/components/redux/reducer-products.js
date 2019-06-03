@@ -11,7 +11,7 @@ const initial = (weights !== null && perfumes !== null && categories !== null &&
 
 export function reducerProducts(state = initial, action) {
     switch(action.type) { 
-        case constantsProducts.fetchSpecificsSuccess: return { weights: action.weights, perfumes: action.perfumes, categories: action.categories, images: action.images };
+        case constantsProducts.fetchSpecificsSuccess: return { weights: action.weights, perfumes: action.perfumes, categories: action.categories, images: action.images, products: action.products };
         case constantsProducts.fetchSpecificsFailure: return { weights: null, perfumes: null,  categories: null };
 
         case constantsProducts.addProductImageSuccess: return { ...state, images: action.images };

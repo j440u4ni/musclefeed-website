@@ -24,7 +24,8 @@ class CreateProductsTable extends Migration
             $table->integer('quantity');
             $table->boolean('top')->default(false);
             $table->double('promotion')->default(0.0);
-            $table->bigText('details');
+            $table->longText('details');
+            $table->longText('description');
             $table->integer('sold');
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
