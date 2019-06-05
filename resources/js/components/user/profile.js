@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Layout } from 'antd';
+import { Layout, Progress, Icon, Empty } from 'antd';
 import { Card, Elevation, Button as BP } from '@blueprintjs/core';
 import imageBrand from '../../../images/png/brandv2@2x.png';
+
 import { slugify } from '../../global-tools';
 const { Header } = Layout;
 
@@ -23,7 +25,7 @@ class Profile extends Component {
     
     onLogout() { const { dispatch } = this.props; dispatch(logout()); }
     
-    render() {
+    render() { console.log(this.state.user);
         return(
             <React.Fragment>
                 <Layout className="layout-global">
@@ -32,15 +34,38 @@ class Profile extends Component {
                             <div className="row w-100 row-user-header d-flex flex-row">
                                 <div className="col-12 col-md-1 col-lg-1"><img src={imageBrand} className="brand-site" /></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
+                                    <span className="home-link mr-1">{this.state.user && this.state.user.name}</span>
                                     <BP intent="danger" icon="power" onClick={this.onLogout} className="item-bl" />
                                 </div>
                             </div>
                         </div>
                     </Header>
-                    <Layout className="main-global-page mt-0">
-                        <div className="container d-flex flex-csolumn justify-content-center align-items-center account-container">
-                            <div className="col-3"><Card elevation={Elevation.TWO} className="w-100"></Card></div>
-                            <div className="col-9"><Card elevation={Elevation.TWO} className="w-100"></Card></div>
+                    <Layout className="account-global-page mt-0">
+                        <div className="container d-flex flex-row justify-content-center account-container">
+                            <div className="row w-100">
+                            <div className="col-12 col-lg-3 col-md-3"><Card elevation={Elevation.TWO} className="w-100 p-2 px-3 d-flex flex-column align-items-center">
+                                <span className="user-bold">Bienvenue, {this.state.user && this.state.user.civility === 1 ? 'Mr' : 'Mme'} {this.state.user && this.state.user.name}</span> 
+                                {this.state.user && <Progress type={"circle"} percent={this.state.user.fidelity} className="mt-2 align-self-center ml-4 circle-fidelity" /> }
+                                <p className="terms-text text-center mt-1 mb-0">Une fois la jauge pleine, nous vous offrons 10% de remise sur votre prochaine commande.</p>
+                            </Card></div>
+                            <div className="col-12 col-lg-9 col-md-9">
+                            <Card elevation={Elevation.TWO} className="w-100 p-2 d-flex flex-column align-items-start px-3 mt-1">
+                                <h4 className="user-bold-title mt-1">Vos informations personnelles</h4>
+                                <div className="d-flex flex-row align-items-center justify-content-center">
+                                    <div className="col-12 col-md-8 col-lg-8 d-flex flex-column align-items-start">
+                                        <span></span>
+                                    </div>
+                                    <div className="col-12 col-lg-4 col-md-4"></div>
+                                </div>
+                            </Card>
+                            <Card elevation={Elevation.TWO} className="w-100 p-2 d-flex flex-column align-items-start px-3 mt-1">
+                                <h4 className="user-box-title mt-1"><Icon type="code-sandbox" />&nbsp;<span>Mes Commandes</span></h4>
+                                <div className="d-flex flex-row align-items-center justify-content-center w-100">
+                                    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className="mb-2" />
+                                </div>
+                            </Card>                           
+                            </div>
+                            </div>
                         </div>
                     </Layout>
                 </Layout>

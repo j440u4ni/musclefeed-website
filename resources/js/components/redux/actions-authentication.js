@@ -12,7 +12,7 @@ export function authentication(email, password, admin, stop) {
                 if(!response.hasOwnProperty('success')) { dispatch(failure()); stop(); message.warn(<span className="button-text">Authentification échoué.</span>); }
                 else { localStorage.setItem('user-data', JSON.stringify(response.user)); localStorage.setItem('user-token', response.access);
                        if(admin === true) { stop(); localStorage.setItem('admin-bool', true); history.push('/dashboard'); dispatch(success(JSON.stringify(response.user))); window.location.reload();} 
-                       else { stop(); localStorage.setItem('user-bool', true); history.push('/dashboard'); dispatch(success(JSON.stringify(response.user))); window.location.reload(); }
+                       else if(admin === false) { stop(); localStorage.setItem('user-bool', true); history.push('/profile'); dispatch(success(JSON.stringify(response.user))); window.location.reload(); }
                 }
             });
     }

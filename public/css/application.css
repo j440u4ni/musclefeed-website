@@ -17867,11 +17867,16 @@ a.text-dark:focus {
 
 .user-global-page {
   min-height: calc(100vh - 50px);
-  background: #ffffff;
+  background: transparent;
 }
 
 .main-global-page {
   min-height: calc(100vh - 50px);
+  background: transparent;
+}
+
+.account-global-page {
+  min-height: calc(100vh - 100px);
   background: transparent;
 }
 
@@ -17942,14 +17947,14 @@ a.text-dark:focus {
   min-height: 350px;
   position: relative;
   top: 30vh;
-  max-width: 250px;
+  max-width: 280px;
 }
 
 .register-form {
   min-height: 350px;
   position: relative;
   top: 20vh;
-  max-width: 250px;
+  max-width: 280px;
 }
 
 .button-text {
@@ -17982,7 +17987,7 @@ a.text-dark:focus {
 }
 
 .layout-container {
-  background: #ffffff;
+  background: transparent;
 }
 
 .layout-global {
@@ -18209,6 +18214,12 @@ a.text-dark:focus {
   border-radius: 10px;
 }
 
+.shadow-box-account {
+  width: 90%;
+  height: 20px;
+  border-radius: 10px;
+}
+
 .row-user-header {
   height: 45px;
   position: relative;
@@ -18356,12 +18367,58 @@ a.text-dark:focus {
 }
 
 .account-navbar {
-  height: 140px;
+  height: 100px;
 }
 
 .account-container {
   position: relative;
-  top: -30px;
+  top: -20px;
+}
+
+.user-bold {
+  font-family: "DIN Pro Condensed Bold", Arial, Helvetica, sans-serif;
+}
+
+.circle-fidelity {
+  position: relative;
+  left: -10px;
+}
+
+.terms-text {
+  color: gray;
+  font-family: "Brandon Grotesque Medium", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+.user-bold-title {
+  font-family: "DIN Pro Condensed Bold", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.settings-logo {
+  width: 100%;
+}
+
+.user-box-title {
+  font-family: "DIN Pro Condensed Bold", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.user-box-title span {
+  position: relative;
+  top: 3px;
+}
+
+.account-cover-image {
+  max-height: 320px;
+  position: relative;
+  top: 16vh;
+}
+
+.account-cover-image-second {
+  max-height: 320px;
+  position: relative;
+  top: 20vh;
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
@@ -18399,6 +18456,11 @@ a.text-dark:focus {
   }
 
   .shadow-box {
+    width: 100%;
+    display: block;
+  }
+
+  .shadow-box-account {
     width: 100%;
     display: block;
   }
