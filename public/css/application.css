@@ -18421,6 +18421,66 @@ a.text-dark:focus {
   top: 20vh;
 }
 
+.user-information-span span {
+  font-family: "DIN Pro Condensed Bold", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.user-information-span {
+  font-size: 13px;
+  font-family: "Brandon Grotesque Medium", Arial, Helvetica, sans-serif;
+}
+
+.cart-box {
+  position: absolute;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  top: 40px;
+}
+
+.cart-box span {
+  display: none;
+}
+
+.cart-box .icon-cart {
+  display: block;
+}
+
+.cart-box:hover {
+  width: 120px;
+}
+
+.cart-box:hover span {
+  display: block;
+}
+
+.cart-box a {
+  color: #000000;
+}
+
+.cart-box a:hover {
+  text-decoration: none;
+  color: #000000;
+  text-transform: none;
+}
+
+.text-cart {
+  font-family: "Brandon Grotesque Medium", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+@media only screen and (max-height: 1600px) {
+  .special-background .second-row {
+    height: 100vh;
+    background: url(/images/canvas-v2@2x.png?9c992bb489f305f36b706511bd8e43e2) center no-repeat;
+    background-size: 0%;
+    background-position: 2px center;
+    border-radius: 0px;
+  }
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
   .login-form {
     min-width: 100%;
@@ -18428,16 +18488,6 @@ a.text-dark:focus {
 
   .register-form {
     min-width: 100%;
-  }
-}
-
-@media only screen and (max-width: 2254px) and (min-width: 1920px) {
-  .special-background .second-row {
-    height: 100vh;
-    background: url(/images/canvas-v2@2x.png?9c992bb489f305f36b706511bd8e43e2) center no-repeat;
-    background-size: 170%;
-    background-position: 2px center;
-    border-radius: 0px;
   }
 }
 
@@ -18463,6 +18513,12 @@ a.text-dark:focus {
   .shadow-box-account {
     width: 100%;
     display: block;
+  }
+
+  .block-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 

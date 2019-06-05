@@ -30,6 +30,8 @@ class Home extends Component {
         return(
             <React.Fragment>
                 <Layout className="layout-global">
+                    <Card className="cart-box d-flex flex-column align-items-center justify-content-center text-cart px-1" elevation={Elevation.FOUR}>
+                        <Link to="/cart" className="d-flex flex-row align-items-center justify-content-center"><Icon icon="shopping-cart" className="icon-cart" />&nbsp;<span>Mon panier</span></Link></Card>
                     <Header className="user-header">
                         <div className="container-fluid d-flex flex-column container justify-content-start align-items-center">
                             <div className="row w-100 row-user-information d-flex flex-row justify-content-end container">

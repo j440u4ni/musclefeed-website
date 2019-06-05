@@ -51,11 +51,16 @@ class Profile extends Component {
                             <div className="col-12 col-lg-9 col-md-9">
                             <Card elevation={Elevation.TWO} className="w-100 p-2 d-flex flex-column align-items-start px-3 mt-1">
                                 <h4 className="user-bold-title mt-1">Vos informations personnelles</h4>
-                                <div className="d-flex flex-row align-items-center justify-content-center">
-                                    <div className="col-12 col-md-8 col-lg-8 d-flex flex-column align-items-start">
-                                        <span></span>
+                                <div className="d-flex flex-row align-items-center justify-content-center w-100 block-item">
+                                    <div className="col-12 col-md-4 col-lg-4 d-flex flex-column align-items-start w-100">
+                                        <span className="user-information-span w-100 d-flex flex-row"><span className="mr-2">Nom Complet: </span>&nbsp;{this.state.user && this.state.user.name}</span>
+                                        <span className="user-information-span w-100 d-flex flex-row"><span className="mr-2">E-mail: </span>&nbsp;{this.state.user && this.state.user.email}</span>
+                                        <div className="mt-2"></div>
                                     </div>
-                                    <div className="col-12 col-lg-4 col-md-4"></div>
+                                    <div className="col-12 col-md-8 col-lg-8 d-flex flex-column align-items-start w-100">
+                                        <span className="user-information-span w-100 d-flex flex-row"><span className="mr-2">Adresse: </span>&nbsp;{this.state.user && this.state.user.main_address ? this.state.user.main_address : 'Non renseigné'}</span>
+                                        <span className="user-information-span w-100 d-flex flex-row"><span className="mr-2">Complément: </span>&nbsp;{this.state.user && this.state.user.secondary_address ? this.state.user.secondary_address : 'Non renseigné'}</span>
+                                    </div>
                                 </div>
                             </Card>
                             <Card elevation={Elevation.TWO} className="w-100 p-2 d-flex flex-column align-items-start px-3 mt-1">

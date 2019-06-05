@@ -110,19 +110,27 @@
 
 .account-cover-image { max-height : 320px; position: relative; top: 16vh; }
 .account-cover-image-second { max-height: 320px; position: relative; top: 20vh; }
+.user-information-span span { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 13px; }
+.user-information-span { font-size: 13px; font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; }
+.cart-box { position: absolute; z-index: 1; width: 30px; height: 30px; right: 0px; top: 40px; span { display: none; } .icon-cart { display: block; } }
+.cart-box:hover { span { display: block; } width: 120px; }
+.cart-box a { color: #000000; }
+.cart-box a:hover { text-decoration: none; color: #000000; text-transform: none; }
+.text-cart { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; }
 
+@media only screen and (max-height: 1600px) {
+    .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 0%; background-position: 2px center; border-radius: 0px; }
+}
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
     .login-form { min-width: 100%; }
     .register-form { min-width: 100%; }
-}
-@media only screen and (max-width: 2254px) and (min-width: 1920px) {
-    .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 170%; background-position: 2px center; border-radius: 0px; }
 }
 @media only screen and (max-width: 800px) {
     .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 150%; background-position: 2px center; border-radius: 0px; }
     .row-user-header { display: flex; flex-direction: column; }
     .shadow-box { width: 100%; display: block; }
     .shadow-box-account { width: 100%; display: block; }
+    .block-item { display: flex; flex-direction: column; flex-wrap: wrap; }
 }
 @media only screen and (max-width: 768px) {
     .special-background .second-row { height: 100vh; background: #ffffff; }
