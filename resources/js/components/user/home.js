@@ -39,7 +39,7 @@ class Home extends Component {
                                 <div className="col-12 col-md-1 col-lg-1"><img src={imageBrand} className="brand-site" /></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
                                     <Card interactive={false} elevation={Elevation.THREE} className="shadow-box">
-                                        { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.map((item) => {
+                                        { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.slice(0, 6).map((item) => {
                                             if(item.category_id === 0 && this.state.categories.filter((i) => { return i.category_id === item.id }).length > 0 ) { return( 
                                                 <Dropdown key={item.id} className="menu-link" overlay={<Menu>{this.state.categories.filter((i) => { return i.category_id === item.id; }).map((a) => { return <Menu.Item key={a.id} className="menu-link-hover-text"><Link to={`/categories/${slugify(a.name)}`}>{a.name}</Link></Menu.Item>}) }</Menu>}>
                                                     <Button type="link"><span>{item.name}</span></Button>
@@ -60,12 +60,12 @@ class Home extends Component {
                                         { Array.isArray(this.state.products) && this.state.products.filter((i) => { return i.top === 1; }).length > 0 && this.state.products.filter((i) => { return i.top === 1; }).map((a) => {  const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; });
                                             let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                             return (
-                                                <div key={a.id} className="w-100 d-flex flex-column align-items-center p-0">
+                                                <div key={a.id} className="w-100 d-flex flex-column align-items-center p-0 top-product-section">
                                                     <h4 className="text-center product-identifier mt-1">Top Produits</h4>
                                                     <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-top-image mt-0" />
                                                     <h6 className="text-center product-identifier-title mt-1">{a.name}</h6>
                                                     <div className="row d-flex flex-row px-1 w-100 mt-1">
-                                                        <div className="col-12 col-md-6 col-lg-6 fredoka-police">Prix: {minimum.price}&euro;</div>
+                                                        <div className="col-12 col-md-6 col-lg-6 fredoka-police p-0 d-flex flex-row justify-content-center">Prix: {minimum.price}&euro;</div>
                                                         <div className="col-12 col-md-6 col-lg-6 d-flex flex-row justify-content-end p-0">
                                                             <Button className="product-home-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button>
                                                             <Button className="product-home-button ml-1 p-0 px-3"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon" /></Button>
@@ -75,7 +75,7 @@ class Home extends Component {
                                             );
                                         })}
                                 </div>
-                                <div className="col-12 col-md-10 col-lg-10 p-0">
+                                <div className="col-12 col-md-10 col-lg-10 p-0 slideshow-box">
                                     <Carousel autoplay>
                                      { Array.isArray(this.state.slideshow) && this.state.slideshow.length > 0 && this.state.slideshow.map((item) => {
                                          if(item.slideshow === 1) { return (<div className="col-12" key={item.id}><img src={`https://musclefeed.co/storage/${item.url.split('/')[2]}`} className="slideshow-image img-fluid rounded" /></div>); }
@@ -88,7 +88,7 @@ class Home extends Component {
                                 <div className="d-flex flex-row w-100 mt-2 justify-content-start">
                                 { Array.isArray(this.state.products) && this.state.products.slice(0, 5).map((a) => { const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; }); let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                     return (
-                                        <Card key={a.id} className="col-2 d-flex flex-column align-items-center ml-4 product-box-home p-2" interactive={false} elevation={Elevation.FOUR}>
+                                        <Card key={a.id} className="col-12 col-md-3 col-lg-2 d-flex flex-column align-items-center ml-4 product-box-home p-2" interactive={false} elevation={Elevation.FOUR}>
                                             <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-bottom-image mt-0" />
                                             <h6 className="text-center product-bottom-identifier-title mt-1">{a.name}</h6>
                                             <h6 className="text-center product-bottom-description-title mt-1">{a.description_title}</h6>

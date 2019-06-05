@@ -18252,15 +18252,14 @@ a.text-dark:focus {
   text-decoration: none;
 }
 
-.slideshow-image {
-  position: relative;
-  right: -25px;
+.top-product-section {
+  max-height: 278px;
 }
 
 .product-top-image {
   position: relative;
-  width: 100%;
-  left: 25px;
+  max-height: 200px;
+  left: 10px;
 }
 
 .product-bottom-image {
@@ -18283,7 +18282,7 @@ a.text-dark:focus {
   font-family: "Fredoka One Regular", Arial, Helvetica, sans-serif;
   font-size: 14px;
   position: relative;
-  left: 20px;
+  left: 10px;
 }
 
 .product-identifier-title {
@@ -18291,7 +18290,7 @@ a.text-dark:focus {
   font-size: 13px;
   color: #000000;
   position: relative;
-  left: 25px;
+  left: 15px;
   top: -6px;
 }
 
@@ -18351,6 +18350,20 @@ a.text-dark:focus {
   max-height: 45px;
 }
 
+.ant-carousel {
+  position: relative;
+  right: -15px;
+}
+
+.account-navbar {
+  height: 140px;
+}
+
+.account-container {
+  position: relative;
+  top: -30px;
+}
+
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
   .login-form {
     min-width: 100%;
@@ -18358,6 +18371,16 @@ a.text-dark:focus {
 
   .register-form {
     min-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 2254px) and (min-width: 1920px) {
+  .special-background .second-row {
+    height: 100vh;
+    background: url(/images/canvas-v2@2x.png?9c992bb489f305f36b706511bd8e43e2) center no-repeat;
+    background-size: 170%;
+    background-position: 2px center;
+    border-radius: 0px;
   }
 }
 
