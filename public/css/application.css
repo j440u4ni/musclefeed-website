@@ -18471,6 +18471,26 @@ a.text-dark:focus {
   font-size: 12px;
 }
 
+.profile-edit-icon {
+  position: relative;
+  top: -2px;
+}
+
+.profile-edit-title {
+  position: relative;
+  top: -5px;
+}
+
+.modal-title {
+  font-family: "DIN Pro Condensed Bold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.setting-icon {
+  position: relative;
+  top: -4px;
+}
+
 @media only screen and (max-height: 1600px) {
   .special-background .second-row {
     height: 100vh;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Layout, Progress, Icon, Empty } from 'antd';
+import { Layout, Progress, Icon, Empty, Button, Modal, Input } from 'antd';
 import { Card, Elevation, Button as BP } from '@blueprintjs/core';
 import imageBrand from '../../../images/png/brandv2@2x.png';
 
@@ -12,8 +12,9 @@ const { Header } = Layout;
 import { verification, logout } from '../redux/actions-authentication';
 
 class Profile extends Component {
-    constructor(props) { super(props);  this.state = { user: null };
+    constructor(props) { super(props);  this.state = { user: null, visibleConfiguration: false };
         this.onLogout = this.onLogout.bind(this); 
+        this.onConfiguration = this.onConfiguration.bind(this);
     }
 
     componentDidMount() { const { dispatch, history } = this.props;  dispatch(verification(false));
@@ -24,7 +25,8 @@ class Profile extends Component {
     }
     
     onLogout() { const { dispatch } = this.props; dispatch(logout()); }
-    
+    onConfiguration() { this.setState({ visibleConfiguration: !this.state.visibleConfiguration }); }
+
     render() { console.log(this.state.user);
         return(
             <React.Fragment>
@@ -50,7 +52,7 @@ class Profile extends Component {
                             </Card></div>
                             <div className="col-12 col-lg-9 col-md-9">
                             <Card elevation={Elevation.TWO} className="w-100 p-2 d-flex flex-column align-items-start px-3 mt-1">
-                                <h4 className="user-bold-title mt-1">Vos informations personnelles</h4>
+                                <h4 className="user-bold-title mt-0 profile-edit-title mb-0">Vos informations personnelles&nbsp;<Button onClick={this.onConfiguration} type="link"><Icon type="edit" className="profile-edit-icon" /></Button></h4>
                                 <div className="d-flex flex-row align-items-center justify-content-center w-100 block-item">
                                     <div className="col-12 col-md-4 col-lg-4 d-flex flex-column align-items-start w-100">
                                         <span className="user-information-span w-100 d-flex flex-row"><span className="mr-2">Nom Complet: </span>&nbsp;{this.state.user && this.state.user.name}</span>
@@ -74,6 +76,9 @@ class Profile extends Component {
                         </div>
                     </Layout>
                 </Layout>
+                <Modal title={<span className="modal-title" className="p-1"><Icon type="setting" className="setting-icon" />&nbsp;Configuration</span>} onCancel={this.onConfiguration} visible={this.state.visibleConfiguration}>
+                    <Input placeholder="Adresse E-mail" prefix={<Icon type="user" style={{ color: rgb(0, 0, 0, 0.1) }} />}/>
+                </Modal>
             </React.Fragment>
         );
     }
