@@ -5,9 +5,10 @@ const perfumes = localStorage.getItem('perfumes');
 const categories = localStorage.getItem('categories');
 const images = localStorage.getItem('images');
 const products = localStorage.getItem('products');
+const cart = localStorage.getItem('cart');
 
-const initial = (weights !== null && perfumes !== null && categories !== null && images !== null && products !== null) ? { weights: weights, perfumes: perfumes, categories: categories, images: images, products: products } 
-    : { weights: null, perfumes: null,  categories: null, images: null, products: null };
+const initial = (weights !== null && perfumes !== null && categories !== null && images !== null && products !== null && cart === null) ? { weights: weights, perfumes: perfumes, categories: categories, images: images, products: products, cart: cart } 
+    : { weights: null, perfumes: null,  categories: null, images: null, products: null, cart: null };
 
 export function reducerProducts(state = initial, action) {
     switch(action.type) { 
@@ -25,6 +26,13 @@ export function reducerProducts(state = initial, action) {
 
         case constantsProducts.addProductFailure: return { ...state };
         case constantsProducts.addProductSuccess: return { ...state, products: action.products };
+
+        case constantsProducts.addToCartSuccess: return { ...state, cart: action.cart };
+        case constantsProducts.addToCartFailure: return { ...state };
+
+        case constantsProducts.deleteFromCartSuccess: return { ...state, cart: action.cart };
+        case constantsProducts.deleteFromCartFailure: return { ...state };
+
         default: return state;
     }
 }

@@ -50,7 +50,7 @@ class Account extends Component {
                                 <span className="info-text"><strong className="mr-2">Service client:</strong> +33 7 66 16 36 22</span>
                             </div>
                             <div className="row w-100 row-user-header d-flex flex-row">
-                                <div className="col-12 col-md-1 col-lg-1"><img src={imageBrand} className="brand-site" /></div>
+                                <div className="col-12 col-md-1 col-lg-1"><Link to="/"><img src={imageBrand} className="brand-site" /></Link></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
                                     <Card interactive={false} elevation={Elevation.ONE} className="shadow-box-account">
                                         { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.slice(0, 6).map((item) => {

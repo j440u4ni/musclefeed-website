@@ -7,6 +7,7 @@
 @import '../fonts/DIN\ Pro/style.css';
 @import '../fonts/Fredoka\ One/style.css';
 
+.ant-layout { background: #ffffff; }
 .admin-header { height: 40px; background: #ffffff; }
 .user-header { height: 40px; background: transparent; }
 .admin-global-page { min-height: calc(100vh - 50px); background: #ffffff; }
@@ -28,6 +29,7 @@
 .cover-account { width: 50%; position: relative; top: 20vh; }
 .account-links { font-size: 11px; position: relative; top: -10px; }
 .divider-account { position: relative; top: -20px; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 12px; }
+.divider-cart { position: relative; top: -16px; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 10px; }
 .account-button { position: relative; top: -25px; }
 .layout-container { background: transparent; }
 .layout-global { background: transparent; }
@@ -69,7 +71,7 @@
 .editor-box { resize: none; }
 
 .special-background { position: absolute; top: 0px; left: 0px; right: 0px; width: 100vw; height: 100vh; background: #ffffff; z-index: -1; }
-.special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 120%; background-position: 2px center; border-radius: 0px; }
+// .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 120%; background-position: 2px center; border-radius: 0px; }
 .shadow-box { width: 80%; height: 20px; border-radius: 10px;  }
 .shadow-box-account { width: 90%; height: 20px; border-radius: 10px; }
 .row-user-header { height: 45px; position: relative; top: 10px; }
@@ -84,7 +86,7 @@
 .product-top-image { position: relative; max-height: 200px; left: 10px; }
 .product-bottom-image { position: relative; height: 120px; }
 .fredoka-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px; color: #e4200b; }
-.fredoka-bottom-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px;  }
+.fredoka-bottom-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; }
 .product-identifier { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 14px; position: relative; left: 10px; }
 .product-identifier-title { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; position: relative; left: 15px; top: -6px; }
 .product-bottom-identifier-title  { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; position: relative; top: -2px; }
@@ -92,6 +94,7 @@
 .product-home-bottom-button { height: 20px; position: relative; top: -2px; }
 .product-home-icon { position: relative; top: -3px; }
 .title-second-part { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #000000; position: relative; top: 10px; }
+.category-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #000000; position: relative; left: 5px; bottom: 5px; }
 .product-bottom-description-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #707070; position: relative; font-size: 10px; top: -6px; }
 .product-box-home { border-radius: 15px; }
 .product-bottom-description { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; color: #707077; font-size: 10px; top: -4px; }
@@ -122,27 +125,52 @@
 .profile-edit-title { position: relative; top: -5px; }
 .modal-title { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 16px; }
 .setting-icon { position: relative; top: -4px; }
+.footer-row { background: #001526; }
+.cart-container { position: relative; top: 22vh; min-height: 400px; }
+.cart-price-box { position: absolute; top: -5px; right: 0px; height: 50px; width: 100px;}
+.cart-price-global { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; color: #000000; font-size: 25px; }
+.coupon-input::placeholder { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; }
+.account-link:hover { text-decoration: none; }
+
+.cart-input input::placeholder, .cart-input::placeholder { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; color: #888888; position: relative; top: 3px;  }
+.user-name { color: #ffffff; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 12px; }
+.coupon-box { position: relative; top: 15px; }
+.coupon-box-off { position: relative; top: -5px; }
+.box-products { flex-wrap: wrap; }
+.product-link:hover { text-decoration: none; }
+.category-products { position: relative; top: 10vh; }
 
 @media only screen and (max-height: 1600px) {
-    .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 0%; background-position: 2px center; border-radius: 0px; }
+    //.special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 0%; background-position: 2px center; border-radius: 0px; }
+    .home-link, .home-link:hover { color: #000000; }
+    .info-text { color: #000000; }
+    .button-link { border: 2px solid #000000; border-radius: 10px; padding: 7px 9px; }
+    .button-link { box-shadow: 0 20px 25px -5px rgba(255, 255, 255, .02), 0 10px 10px -5px rgba(255, 255, 255, .04); }
 }
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
     .login-form { min-width: 100%; }
     .register-form { min-width: 100%; }
 }
 @media only screen and (max-width: 800px) {
-    .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 150%; background-position: 2px center; border-radius: 0px; }
+    //.special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 150%; background-position: 2px center; border-radius: 0px; }
     .row-user-header { display: flex; flex-direction: column; }
     .shadow-box { width: 100%; display: block; }
     .shadow-box-account { width: 100%; display: block; }
     .block-item { display: flex; flex-direction: column; flex-wrap: wrap; }
+    .slideshow-box { display: none; }
 }
 @media only screen and (max-width: 768px) {
     .special-background .second-row { height: 100vh; background: #ffffff; }
     .button-link { border: 2px solid #000000; border-radius: 10px; padding: 7px 9px; }
     .home-link { color: #000000; text-transform: uppercase; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif !important; font-size: 11px; }
     .home-link:hover { color: #000000; }
+    .shadow-box-account, .shadow-box { display: none; }
+    .slideshow-box { display: none; }
 }
 @media only screen and (max-height: 1024px) and (min-height: 769px) {
-    .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 166%; background-position: 2px center; border-radius: 0px; }
+    //.special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 166%; background-position: 2px center; border-radius: 0px; }
 }
+
+.product-show { position: relative; top: 10vh; }
+.product-page-image { width: 100% }
+.product-page-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 30px; }

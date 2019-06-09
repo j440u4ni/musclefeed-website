@@ -34,9 +34,9 @@ class Profile extends Component {
                     <Header className="account-navbar">
                         <div className="container-fluid d-flex flex-column container justify-content-start align-items-center">
                             <div className="row w-100 row-user-header d-flex flex-row">
-                                <div className="col-12 col-md-1 col-lg-1"><img src={imageBrand} className="brand-site" /></div>
+                                <div className="col-12 col-md-1 col-lg-1"><Link to="/"><img src={imageBrand} className="brand-site" /></Link></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
-                                    <span className="home-link mr-1">{this.state.user && this.state.user.name}</span>
+                                    <span className="user-name mr-1">{this.state.user && this.state.user.name}</span>
                                     <BP intent="danger" icon="power" onClick={this.onLogout} className="item-bl" />
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ class Profile extends Component {
                     </Layout>
                 </Layout>
                 <Modal title={<span className="modal-title" className="p-1"><Icon type="setting" className="setting-icon" />&nbsp;Configuration</span>} onCancel={this.onConfiguration} visible={this.state.visibleConfiguration}>
-                    <Input placeholder="Adresse E-mail" prefix={<Icon type="user" style={{ color: rgb(0, 0, 0, 0.1) }} />}/>
+                    <Input placeholder="Adresse E-mail" prefix={<Icon type="user" style={{ color: 'rgba(0, 0, 0, 0.1)' }} />}/>
                 </Modal>
             </React.Fragment>
         );

@@ -105,3 +105,26 @@ export function addProduct(category, details, name, provider, title, quantity, i
     function success(products) { return { type: constantsProducts.addProductSuccess, products }; }
     function failure() { return { type: constantsProducts.addProductFailure }; }
 }
+
+export function addToCart(logged, email) {
+    return (dispatch) => { const token = localStorage.getItem('user-token');
+        if(logged === true) {
+
+        } else {
+        }
+    }
+
+    function success(cart) { return { type: constantsProducts.addToCartSuccess, cart: cart }; }
+    function failure() { return { type: constantsProducts.addToCartFailure }; }
+}
+
+export function deleteFromCart(logged, email) {
+    return (dispatch) => { const token = localStorage.getItem('user-token');
+        if(logged === true) {
+        } else {
+        }
+    }
+
+    function success(cart) { return { type: constantsProducts.deleteFromCartSuccess, cart: cart }; }
+    function failure() { return { type: constantsProducts.deleteFromCartFailure }; }
+}

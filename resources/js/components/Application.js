@@ -12,6 +12,10 @@ import { Gallery } from './admin/gallery';
 import { Account } from './user/account';
 import { Profile } from './user/profile';
 import { Home } from './user/home';
+import { Cart } from './user/cart';
+import { Product } from './user/product';
+
+import { Category } from './user/category';
 import { runnerStore } from './redux/store.application.js';
 
 import { RouteAdmin, RouteUser, 
@@ -24,6 +28,10 @@ export default class Application extends Component {
             <BrowserRouter forceRefresh={true}>
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/categories/:id" component={Category} />
+                    <Route exact path="/product/:id" component={Product} />
+
+                    <Route exact path="/cart" component={Cart} />
                     <RouteGuestAdmin exact path="/admin" component={Guard} />
                     <RouteAdmin exact path="/dashboard" component={Dashboard} />
                     <RouteAdmin exact path="/merchandise" component={Merchandise} />

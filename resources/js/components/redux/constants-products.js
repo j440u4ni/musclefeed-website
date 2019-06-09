@@ -7,5 +7,8 @@ export const constantsProducts = {
     fetchSpecificsFailure: 'fetchSpecificsFailure', fetchSpecificsSuccess: 'fetchSpecificsSuccess',
     addProductImageSuccess: 'addProductImageSuccess', addProductImageFailure: 'addProductImageFailure',
     deleteProductImageSuccess: 'deleteProductImageSuccess', deleteProductImageFailure: 'deleteProductImageFailure',
-    slideshowProductImageSuccess: 'slideshowProductImageSuccess', slideshowProductImageFailure: 'slideshowProductImageFailure'
+    slideshowProductImageSuccess: 'slideshowProductImageSuccess', slideshowProductImageFailure: 'slideshowProductImageFailure',
+
+    addToCartSuccess: 'addToCartSuccess', addToCartFailure: 'addToCartFailure', 
+    deleteFromCartSuccess: 'deleteFromCartSuccess', deleteFromCartFailure: 'deleteFromCartFailure',
 };

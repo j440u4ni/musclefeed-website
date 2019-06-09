@@ -87,10 +87,11 @@ class Home extends Component {
                             </Card>
                             <div className="row w-100 d-flex flex-column p-1 align-items-start">
                                 <h4 className="title-second-part text-center">Nouveautés</h4>
-                                <div className="d-flex flex-row w-100 mt-2 justify-content-start">
-                                { Array.isArray(this.state.products) && this.state.products.slice(0, 5).map((a) => { const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; }); let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
+                                <div className="d-flex flex-row w-100 mt-2 justify-content-start box-products">
+                                { Array.isArray(this.state.products) && this.state.products.slice(0, 10).map((a) => { const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; }); let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                     return (
-                                        <Card key={a.id} className="col-12 col-md-3 col-lg-2 d-flex flex-column align-items-center ml-4 product-box-home p-2" interactive={false} elevation={Elevation.FOUR}>
+                                        <Link to={`/product/${slugify(a.name)}`} className="w-100 product-link col-12 col-md-3 col-lg-2 ml-4 mt-2 p-0" key={a.id}>
+                                        <Card key={a.id} className="col-12 d-flex flex-column align-items-center product-box-home p-2" interactive={false} elevation={Elevation.FOUR}>
                                             <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-bottom-image mt-0" />
                                             <h6 className="text-center product-bottom-identifier-title mt-1">{a.name}</h6>
                                             <h6 className="text-center product-bottom-description-title mt-1">{a.description_title}</h6>
@@ -103,9 +104,14 @@ class Home extends Component {
                                                 </div>
                                             </div>
                                         </Card>
+                                        </Link>
                                     );
                                 })}
                                 </div>
+                            </div>
+                        </div>
+                        <div className="container-fluid d-flex flex-column justify-content-center align-items-center mt-3 footer-row">
+                            <div className="row w-100 d-flex flex-row">
                             </div>
                         </div>
                     </Layout>

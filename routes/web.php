@@ -11,4 +11,6 @@
 |
 */
 
+Route::get('/categories/{path?}', function() { return view('welcome'); });
+Route::get('/product/{path?}', function() { return view('welcome'); });
 Route::get('/{path?}', function() { return view('welcome'); });
