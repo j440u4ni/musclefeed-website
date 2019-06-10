@@ -33,6 +33,9 @@ export function reducerProducts(state = initial, action) {
         case constantsProducts.deleteFromCartSuccess: return { ...state, cart: action.cart };
         case constantsProducts.deleteFromCartFailure: return { ...state };
 
+        case constantsProducts.paymentSuccess: return { ...state };
+        case constantsProducts.paymentFailure: return { ...state };
+        
         default: return state;
     }
 }

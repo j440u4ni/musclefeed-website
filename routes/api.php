@@ -35,3 +35,7 @@ Route::group(['prefix' => 'v1/account'], function() {
     Route::get('/token-verification', 'API\AccountController@tokenVerify')->middleware(['jwt.auth']);
     Route::get('/logout', 'API\AccountController@logout')->middleware(['jwt.auth']);
 });
+
+Route::group(['prefix' => 'v1/payment'], function() {
+    Route::post('/process', 'API\PaymentController@process');
+});

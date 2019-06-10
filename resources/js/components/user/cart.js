@@ -2,23 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import imageBrand from '../../../images/png/brand@2x.png';
+import visaLogo from '../../../images/png/001-visa-logo.png';
+import masterLogo from '../../../images/png/002-mastercard.png';
+import amexLogo from '../../../images/png/003-american-express-sign.png';
 
 import { Layout, Progress, Menu, Empty, Button, Divider, Dropdown, Input, Icon as AI } from 'antd';
 import { Card, Elevation, Icon, Button as BP } from '@blueprintjs/core';
 
 import { slugify } from '../../global-tools';
-import { productSpecifics, deleteFromCart } from '../redux/actions-products';
+import { productSpecifics, deleteFromCart, paymentProcess } from '../redux/actions-products';
 const { Header } = Layout;
 
 class Cart extends Component {
     constructor(props) { super(props); 
         this.state = { categories: [], products: [], slideshow: [], cart: [], user: [],
             name: '', email: '', main_address: '', secondary_address: '', city: '', country: '', phone: '',
-            total: 0, coupon: ''
+            total: 0, coupon: '', step: 0, cardName: '', loading: false
         };
         this.onName = this.onName.bind(this); this.onMain = this.onMain.bind(this);
         this.onSecondary = this.onSecondary.bind(this); this.onCity = this.onCity.bind(this);
         this.onPhone= this.onPhone.bind(this); this.onDelete = this.onDelete.bind(this);
+        this.onPay = this.onPay.bind(this); this.onStepPayment = this.onStepPayment.bind(this);
+        this.onStepBack = this.onStepBack.bind(this); this.onCard = this.onCard.bind(this);
+        this.onExpiry = this.onExpiry.bind(this); this.onCVC = this.onCVC.bind(this);
+        this.onCardName = this.onCardName.bind(this); this.onStop = this.onStop.bind(this);
     }
     
     componentDidMount() { const { dispatch } = this.props; dispatch(productSpecifics()); let total = 0;
@@ -50,6 +57,20 @@ class Cart extends Component {
         const cart = this.state.cart.filter((i) => { return parseInt(i.id) !== parseInt(id) });
         dispatch(deleteFromCart(this.props.logged, cart));
     }
+
+    onStepPayment() { this.setState({ step: 1 }); }
+    onStepBack() { this.setState({ step: 0 }); }
+    onPay() { const { dispatch } = this.props; const exp = this.state.expiry.split("/");
+        const token = JSON.stringify({ card: this.state.card, exp_year: exp[1], exp_month: exp[0], cvc: this.state.cvc });
+        dispatch(paymentProcess(token, this.props.logged, JSON.stringify(this.state.cart), this.state.email, this.state.name, this.state.cardName, this.state.main_address,
+                this.state.secondary_address, this.state.city, this.state.country, this.state.total, this.state.phone, this.onStop));
+    }
+
+    onCard(event) { this.setState({ card: event.target.value }); }
+    onExpiry(event) { this.setState({ expiry: event.target.value }); }
+    onCVC(event) { this.setState({ cvc: event.target.value }); } 
+    onCardName(event) { this.setState({ cardName: event.target.value }); }
+    onStop() { this.setState({ loading: !this.state.loading }); }
 
     render() {
         return (
@@ -102,10 +123,10 @@ class Cart extends Component {
                                             <Divider type="vertical" style={{ height: '97%', color: '#888888' }} className="divider-cart-mobile" />
                                         </div>
                                         <div className="col-12 col-md-2 col-lg-2 h-100 p-0 d-flex flex-column justify-content-center align-items-start mobile-containers-cart-two">
-                                            <div className="row w-100 d-flex flex-row justify-content-center">
-                                                <span className="cart-text-delivery">Frais de livraison: <span className="ml-2">{ this.state.total < 59 ? 8.90 : 0 }&euro;</span></span>
+                                            <div className="row w-100 d-flex flex-row justify-content-start">
+                                                <span className="cart-text-delivery">Livraison: <span className="">{ this.state.total < 59 ? 8.90 : 0 }&euro;&nbsp; TTC</span></span>
                                             </div>
-                                            <div className="row w-100"><span className="cart-total ml-auto mt-2">Total: {this.state.total < 59 ? this.state.total + 8.9 : this.state.total}&euro;</span></div>
+                                            <div className="row w-100"><span className="cart-total ml-auto mt-2">Total: {this.state.total < 59 ? this.state.total + 8.9 : this.state.total}&euro;&nbsp;TTC</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,16 +134,29 @@ class Cart extends Component {
                                     <Card elevation={Elevation.TWO} className="h-100 d-flex flex-column justify-content-start align-items-center p-1">
                                         <div className="row w-100 d-flex flex-column p-1">
                                             { this.props.logged === false ?
-                                                <React.Fragment>
+                                                this.state.step === 0 ? <React.Fragment>
                                                     <Link to="/account" className="account-link"><BP text={<span className="button-text">Se Connecter</span>} fill={true}/></Link>
                                                     <Divider className="divider-cart mb-0">Ou</Divider>
                                                     <h4 className="user-bold-title mt-0 profile-edit-title mb-1 text-center">Adresse de livraison</h4>
-                                                    <Input prefix={<AI type="user" style={{ color: 'rgba(0, 0, 0, 0.1)'}} />} placeholder={this.state.user.name ? this.state.user.name : 'Nom Complet'} className="cart-input" onChange={this.onName} />
-                                                    <Input placeholder={this.state.user.main_address ? this.state.user.main_address : 'Addresse de livraison'} className="cart-input mt-1" onChange={this.onMain} />
-                                                    <Input placeholder={this.state.user.secondary_address ? this.state.user.secondary_address : 'Complément addresse & Code Postal' } className="cart-input mt-1" onChange={this.onSecondary} />
-                                                    <Input placeholder={this.state.user.city ? this.state.user.city : 'Ville' } className="cart-input mt-1" onChange={this.onCity} />
-                                                    <Input placeholder={this.state.user.phone ? this.state.user.phone : 'Téléphone' } className="cart-input mt-1" onChange={this.onPhone} />
-                                                </React.Fragment> : 
+                                                    <Input prefix={<AI type="user" style={{ color: 'rgba(0, 0, 0, 0.1)'}} />} placeholder={this.state.user.name ? this.state.user.name : 'Nom Complet'} className="cart-input select-input" onChange={this.onName} />
+                                                    <Input placeholder={this.state.user.main_address ? this.state.user.main_address : 'Addresse de livraison'} className="cart-input mt-1 select-input" onChange={this.onMain} />
+                                                    <Input placeholder={this.state.user.secondary_address ? this.state.user.secondary_address : 'Complément addresse & Code Postal' } className="cart-input mt-1 select-input" onChange={this.onSecondary} />
+                                                    <Input placeholder={this.state.user.city ? this.state.user.city : 'Ville' } className="cart-input mt-1 select-input" onChange={this.onCity} />
+                                                    <Input placeholder={this.state.user.phone ? this.state.user.phone : 'Téléphone' } className="cart-input mt-1 select-input" onChange={this.onPhone} />
+                                                </React.Fragment> :
+                                                    <div className="d-flex flex-column w-100">
+                                                        <BP onClick={this.onStepBack} intent="danger" icon="arrow-left" />
+                                                        <Input className="select-input mt-3" placeholder="Nom sur la carte" onChange={this.onCardName} />
+                                                        <Input className="select-input mt-1" placeholder="Numéro de carte" onChange={this.onCard} />
+                                                        <div className="d-flex flex-row justify-content-space-between p-0 mt-1">
+                                                            <div className="row w-100">
+                                                            <div className="col-6"><Input className="select-input" placeholder="00/00" onChange={this.onExpiry} /></div>
+                                                            <div className="col-6"><Input className="select-input" placeholder="CVC" onChange={this.onCVC} /></div>
+                                                            </div>
+                                                        </div>
+                                                        <BP fill={true} intent="primary" loading={this.state.loading} onClick={this.onPay} className="mt-3" icon="credit-card" text={<span className="button-text">Payer</span>} />
+                                                    </div>
+                                                : 
                                                 <React.Fragment>
                                                     <h4 className="user-bold-title mt-3 profile-edit-title mb-1 text-center">Adresse de livraison</h4>
                                                     <Divider className="mt-0" />
@@ -131,7 +165,7 @@ class Cart extends Component {
                                                     <Input placeholder={this.state.user.secondary_address ? this.state.user.secondary_address : 'Complément addresse & Code Postal' } className="cart-input mt-1" onChange={this.onSecondary} />
                                                     <Input placeholder={this.state.user.city ? this.state.user.city : 'Ville' } className="cart-input mt-1" onChange={this.onCity} />
                                                     <Input placeholder={this.state.user.phone ? this.state.user.phone : 'Téléphone' } className="cart-input mt-1" onChange={this.onPhone} />
-                                                </React.Fragment>
+                                                </React.Fragment>                                           
                                             }
                                         </div>
                                         <div className={this.props.logged ? "row w-100 d-flex flex-row mt-5 coupon-box" : "row w-100 d-flex flex-row mt-5 coupon-box-off"}> 
@@ -139,10 +173,40 @@ class Cart extends Component {
                                             <div className="col-3 p-1"><BP icon="confirm" fill={true} intent="danger" style={{ marginTop: 0.5 }} /></div>
                                         </div>
                                         <div className={this.props.logged ? "row w-100 flex-row p-1 coupon-box" : "row w-100 flex-row p-1 coupon-box-off"}>
-                                            <BP icon="send-to" text={<span className="button-text">Confirmer</span>} intent="primary" fill={true} />
+                                            <BP icon="send-to" text={<span className="button-text">Confirmer</span>} intent="primary" onClick={this.onStepPayment} fill={true} />
                                         </div>
                                     </Card>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="container d-flex flex-row justify-content-center align-items-center mt-2 ad-boxes-row w-100">
+                            <div className="row w-100">
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-column justify-content-center align-items-center mt-3 footer-row footer-other-row">
+                            <div className="container h-100 p-2">
+                            <div className="row w-100 d-flex flex-row justify-content-center align-items-center">
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-column justify-content-center">
+                                    <h4 className="newsletter-title">Newsletter</h4>
+                                    <div className="row d-flex flex-row justify-content-center align-items-center p-0">
+                                        <div className="col-12 col-md-8 col-xl-8 col-lg-8"><Input placeholder="E-mail" /></div>
+                                        <div className="col-12 col-md-4 col-xl-4 col-lg-4 px-1"><BP intent="none" icon="envelope" className="bp3-dark button-newsletter-confirm" fill={true} /></div>
+                                    </div>
+                                </div>
+                                <div className="col-12 col-md-8 col-xl-8 col-lg-8 d-flex flex-row justify-content-center align-items-start">
+                                    <img className="payment-logo mt-4" src={visaLogo} />
+                                    <img className="payment-logo ml-4 mt-4" src={amexLogo} />
+                                    <img className="payment-logo ml-4 mt-4" src={masterLogo} />
+                                </div>
+                            </div>
+                            <div className="row w-100 d-flex flex-row justify-content-center align-items-end">
+                                <span className="button-text terms-text-footer" style={{ color: '#FFFFFF' }}>&copy;{ new Date().getFullYear() }. Tous droits reservés.</span>
+                                <Link to="/terms" className="button-text terms-text-footer ml-5">Termes & Conditions</Link>
+                                <Link to="/legal" className="button-text terms-text-footer ml-2">Mentions Légales</Link>
+                            </div>
                             </div>
                         </div>
                 </Layout>

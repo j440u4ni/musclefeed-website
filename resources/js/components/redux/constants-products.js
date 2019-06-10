@@ -11,4 +11,6 @@ export const constantsProducts = {
 
     addToCartSuccess: 'addToCartSuccess', addToCartFailure: 'addToCartFailure', 
     deleteFromCartSuccess: 'deleteFromCartSuccess', deleteFromCartFailure: 'deleteFromCartFailure',
+
+    paymentSuccess: 'paymentSuccess', paymentFailure: 'paymentFailure'
 };

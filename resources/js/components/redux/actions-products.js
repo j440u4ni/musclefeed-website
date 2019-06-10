@@ -1,6 +1,6 @@
 import React from 'react';
 import { constantsProducts } from './constants-products';
-import { message } from 'antd';
+import { message, notification } from 'antd';
 
 export function productSpecifics() {
     return (dispatch) => { const token = localStorage.getItem('user-token');
@@ -96,7 +96,7 @@ export function slideshowImage(id) {
 export function addProduct(category, details, name, provider, title, quantity, image, description, stop) { 
     return (dispatch) => { const token = localStorage.getItem('user-token'); 
         fetch('https://musclefeed.co/api/v1/product/add-product', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization' : 'Bearer ' + token }, body: JSON.stringify({ name, provider, description_title: title, quantity, description, details, category, image }) }).then((first) => { return first.json(); })
-            .then((second) => { console.log(second);
+            .then((second) => { 
                 if(!second.hasOwnProperty('success')) { dispatch(failure()); message.error(<span className="button-text">Impossible d'ajouter le produit, vérifier sa disponibilité.</span>); stop(); }
                 else { dispatch(success(JSON.stringify(second.products))); localStorage.setItem('products', JSON.stringify(second.products)); window.location.reload(); }
             });
@@ -132,4 +132,17 @@ export function deleteFromCart(logged, cart) {
 
     function success(cart) { return { type: constantsProducts.deleteFromCartSuccess, cart: cart }; }
     function failure() { return { type: constantsProducts.deleteFromCartFailure }; }
+}
+
+export function paymentProcess(token, logged, cart, email, name, credit_name, main_address, secondary_address, city, country, price, phone, stop) {
+    return (dispatch) => {
+        fetch('https://musclefeed.co/api/v1/payment/process', { method: 'POST', headers : { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ cart: cart, email: email, name, credit_name, main_address, secondary_address, city, country , phone, price, token }) }).then((first) => { return first.json(); })
+            .then((second) => { console.log(second.message);
+                if(!second.hasOwnProperty('success')) { dispatch(failure()); message.error(<span className="button-text">Erreur de paiement survenue.</span>); stop(); }
+                else { dispatch(success()); message.success(<span className="button-text">Paiement avec succès.</span>);  window.location.href = "https://musclefeed.co/"; stop(); }
+            });
+    }
+
+    function success() { return { type: constantsProducts.paymentSuccess }; }
+    function failure() { return { type: constantsProducts.paymentFailure }; }
 }

@@ -18843,6 +18843,10 @@ a.text-dark:focus {
     position: relative;
     top: 10px !important;
   }
+
+  .footer-row {
+    height: 250px !important;
+  }
 }
 
 .product-show {
