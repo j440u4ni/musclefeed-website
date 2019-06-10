@@ -24,7 +24,7 @@ class WeightFragment extends Component {
             <React.Fragment>
                 <Drawer isOpen={this.props.isOpen} onClose={this.props.onClose} className="admin-drawer p-1 d-flex flex-column justify-content-center" canEscapeKeyClose={true}>
                     <InputGroup placeholder="Nom" leftIcon="text-highlight" className="admin-input" onChange={this.onName} />
-                    <InputGroup placeholder="Valeur" className="mt-1 admin-input" leftIcon="id-number" type="number" onChange={this.onDescription} />
+                    <InputGroup placeholder="Valeur" className="mt-1 admin-input" leftIcon="id-number" type="number" onChange={this.onWeight} />
                     <Button intent={"danger"} onClick={this.onWeightAdd} fill={true} loading={this.state.loading} className="mt-1" text={<span className="select-text">Confirmer</span>} />
                 </Drawer>
             </React.Fragment>

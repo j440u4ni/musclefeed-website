@@ -20,7 +20,7 @@ class ProductController extends Controller
         try {
             $perfumeCount = Perfume::all(); $weightCount = Weight::all();
             $categoryCount = Category::all(); $imageCount = Image::all();
-            $productCount = Product::all();
+            $productCount = Product::all(); 
             return response()->json(['success' => true, 'weights' => $weightCount, 'categories' => $categoryCount, 'perfumes' => $perfumeCount, 'images' => $imageCount, 'products' => $productCount], 200);
         } catch(Exception $e) { return response()->json(['error' => $e->getMessage()], 201); }
     }

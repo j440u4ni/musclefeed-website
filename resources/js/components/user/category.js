@@ -73,8 +73,8 @@ class Category extends Component {
                                             <div className="row d-flex flex-row p-0 w-100 mt-1">
                                                 <div className="col-12 col-md-10 col-lg-10 fredoka-bottom-police flex-row justify-content-start p-0 px-1">Prix: {minimum.price}&euro;</div>
                                                 <div className="col-12 col-md-2 col-lg-2 d-flex flex-row justify-content-end p-0">
-                                                    <Button className="product-home-bottom-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button>
-                                                    <Button className="product-home-bottom-button ml-1 p-0 px-3"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon" /></Button>
+                                                    { /* <Button className="product-home-bottom-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button> */}
+                                                    <Link to={`/product/${slugify(a.name)}`}><Button className="product-home-bottom-button ml-1 p-0 px-3"><span className="button-text card-button-text">Lire Plus</span>&nbsp;<Icon icon="shopping-cart" iconSize={10} className="product-home-icon" /></Button></Link>
                                                 </div>
                                             </div>
                                         </Card>

@@ -49,28 +49,27 @@ class Home extends Component {
                                         }) }
                                     </Card>
                                     <Divider type="vertical" className="divider-main" />
-                                    <Link to="/account" className="dashboard-link home-link"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
+                                    <Link to="/account" className="dashboard-link home-link home-mobile-button"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
                                 </div>
                             </div>
                         </div>
                     </Header>
-                    <div className="special-background d-flex flex-row"><div className="col-12 col-md-5 col-lg-5"></div><div className="col-12 col-md-7 col-lg-7 second-row"></div></div>
                     <Layout className="main-global-page mt-0">
                         <div className="container d-flex flex-column justify-content-center align-items-center mt-5">
                             <Card interactive={false} elevation={Elevation.THREE} className="row w-100 d-flex flex-row p-1 justify-content-end">
-                                <div className="col-12 col-md-2 col-lg-2 d-flex flex-column p-0 w-100 align-items-center">
+                                <div className="col-12 col-md-2 col-lg-2 d-flex flex-column p-0 w-100 align-items-center product-top-mobile">
                                         { Array.isArray(this.state.products) && this.state.products.filter((i) => { return i.top === 1; }).length > 0 && this.state.products.filter((i) => { return i.top === 1; }).map((a) => {  const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; });
                                             let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                             return (
                                                 <div key={a.id} className="w-100 d-flex flex-column align-items-center p-0 top-product-section">
                                                     <h4 className="text-center product-identifier mt-1">Top Produits</h4>
-                                                    <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-top-image mt-0" />
+                                                    <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-top-image product-top-mobile-image mt-0" />
                                                     <h6 className="text-center product-identifier-title mt-1">{a.name}</h6>
-                                                    <div className="row d-flex flex-row px-1 w-100 mt-1">
+                                                    <div className="row d-flex flex-row px-1 w-100 mt-1 product-row-mobile">
                                                         <div className="col-12 col-md-6 col-lg-6 fredoka-police p-0 d-flex flex-row justify-content-center">Prix: {minimum.price}&euro;</div>
                                                         <div className="col-12 col-md-6 col-lg-6 d-flex flex-row justify-content-end p-0">
-                                                            <Button className="product-home-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button>
-                                                            <Button className="product-home-button ml-1 p-0 px-3"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon" /></Button>
+                                                            {/*<Button className="product-home-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button> */}
+                                                           <Link to={`/product/${slugify(a.name)}`}><Button className="product-home-button ml-1 p-0 px-3 product-mobile-button"><span className="button-text card-button-text">Lire Plus</span>&nbsp;<Icon icon="arrow-right" iconSize={10} className="product-home-icon" /></Button></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,7 +89,7 @@ class Home extends Component {
                                 <div className="d-flex flex-row w-100 mt-2 justify-content-start box-products">
                                 { Array.isArray(this.state.products) && this.state.products.slice(0, 10).map((a) => { const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; }); let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                     return (
-                                        <Link to={`/product/${slugify(a.name)}`} className="w-100 product-link col-12 col-md-3 col-lg-2 ml-4 mt-2 p-0" key={a.id}>
+                                        <Link to={`/product/${slugify(a.name)}`} className="w-100 product-link col-12 col-md-3 col-lg-2 ml-4 mt-2 p-0 product-mobile-box" key={a.id}>
                                         <Card key={a.id} className="col-12 d-flex flex-column align-items-center product-box-home p-2" interactive={false} elevation={Elevation.FOUR}>
                                             <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-bottom-image mt-0" />
                                             <h6 className="text-center product-bottom-identifier-title mt-1">{a.name}</h6>
@@ -99,8 +98,8 @@ class Home extends Component {
                                             <div className="row d-flex flex-row p-0 w-100 mt-1">
                                                 <div className="col-12 col-md-10 col-lg-10 fredoka-bottom-police flex-row justify-content-start p-0 px-1">Prix: {minimum.price}&euro;</div>
                                                 <div className="col-12 col-md-2 col-lg-2 d-flex flex-row justify-content-end p-0">
-                                                    <Button className="product-home-bottom-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button>
-                                                    <Button className="product-home-bottom-button ml-1 p-0 px-3"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon" /></Button>
+                                                   {/* <Button className="product-home-bottom-button p-0 px-3"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button> ¨*/}
+                                                   <Link to={`/product/${slugify(a.name)}`}><Button className="product-home-bottom-button ml-1 p-0 px-3"><span className="button-text card-button-text">Lire Plus</span>&nbsp;<Icon icon="arrow-right" iconSize={10} className="product-home-icon" /></Button></Link>
                                                 </div>
                                             </div>
                                         </Card>

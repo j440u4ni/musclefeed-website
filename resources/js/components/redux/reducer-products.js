@@ -7,7 +7,7 @@ const images = localStorage.getItem('images');
 const products = localStorage.getItem('products');
 const cart = localStorage.getItem('cart');
 
-const initial = (weights !== null && perfumes !== null && categories !== null && images !== null && products !== null && cart === null) ? { weights: weights, perfumes: perfumes, categories: categories, images: images, products: products, cart: cart } 
+const initial = (weights !== null && perfumes !== null && categories !== null && images !== null && products !== null || cart !== null) ? { weights: weights, perfumes: perfumes, categories: categories, images: images, products: products, cart: cart } 
     : { weights: null, perfumes: null,  categories: null, images: null, products: null, cart: null };
 
 export function reducerProducts(state = initial, action) {

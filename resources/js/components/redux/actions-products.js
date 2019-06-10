@@ -106,11 +106,13 @@ export function addProduct(category, details, name, provider, title, quantity, i
     function failure() { return { type: constantsProducts.addProductFailure }; }
 }
 
-export function addToCart(logged, email) {
+export function addToCart(logged, cart) {
     return (dispatch) => { const token = localStorage.getItem('user-token');
         if(logged === true) {
-
         } else {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            dispatch(success(JSON.stringify(cart)));
+            window.location.href = "https://musclefeed.co/cart";
         }
     }
 
@@ -118,10 +120,13 @@ export function addToCart(logged, email) {
     function failure() { return { type: constantsProducts.addToCartFailure }; }
 }
 
-export function deleteFromCart(logged, email) {
+export function deleteFromCart(logged, cart) {
     return (dispatch) => { const token = localStorage.getItem('user-token');
         if(logged === true) {
         } else {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            dispatch(success(JSON.stringify(cart)));
+            window.location.reload();
         }
     }
 
