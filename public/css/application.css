@@ -18838,6 +18838,11 @@ a.text-dark:focus {
     position: relative;
     display: none !important;
   }
+
+  .button-newsletter-confirm {
+    position: relative;
+    top: 10px !important;
+  }
 }
 
 .product-show {
@@ -18929,5 +18934,41 @@ a.text-dark:focus {
 .ad-boxes-row {
   position: relative;
   max-height: 100px;
+}
+
+.footer-row {
+  width: 100vw;
+  height: 150px;
+  background: #000000;
+}
+
+.newsletter-title {
+  font-family: "Fredoka One Regular", Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.payment-logo {
+  width: 60px;
+}
+
+.footer-row {
+  box-shadow: 0px -1px 14px -3px #888888;
+}
+
+.terms-text-footer {
+  position: relative;
+  bottom: -30px;
+  color: #ffffff;
+}
+
+.terms-text-footer:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-other-row {
+  position: absolute;
+  bottom: 0px;
 }
 

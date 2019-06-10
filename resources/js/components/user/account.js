@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Button, Icon as BIcon, Card, Elevation } from '@blueprintjs/core';
+import { Button, Icon as BIcon, Card, Elevation, Button as BP } from '@blueprintjs/core';
 import { Layout, Icon, Input, Select, Divider, Dropdown, Button as BA, Menu  } from 'antd';
 import imageBrand from '../../../images/png/brand@2x.png';
 import colorBrand from '../../../images/svg/undraw-wizard.svg';
 import accountBrand from '../../../images/svg/undraw-healthy.svg';
+import visaLogo from '../../../images/png/001-visa-logo.png';
+import masterLogo from '../../../images/png/002-mastercard.png';
+import amexLogo from '../../../images/png/003-american-express-sign.png';
 
 import { slugify } from '../../global-tools';
 import { verification, authentication, register } from '../redux/actions-authentication';
@@ -92,7 +95,37 @@ class Account extends Component {
                                 </div>
                             </div>
                         </div> }
-                    </Layout>
+                        <div className="container d-flex flex-row justify-content-center align-items-center mt-2 ad-boxes-row w-100">
+                            <div className="row w-100">
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-column justify-content-center align-items-center mt-3 footer-row footer-other-row">
+                            <div className="container h-100 p-2">
+                            <div className="row w-100 d-flex flex-row justify-content-center align-items-center">
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-column justify-content-center">
+                                    <h4 className="newsletter-title">Newsletter</h4>
+                                    <div className="row d-flex flex-row justify-content-center align-items-center p-0">
+                                        <div className="col-12 col-md-8 col-xl-8 col-lg-8"><Input placeholder="E-mail" /></div>
+                                        <div className="col-12 col-md-4 col-xl-4 col-lg-4 px-1"><BP intent="none" icon="envelope" className="bp3-dark button-newsletter-confirm" fill={true} /></div>
+                                    </div>
+                                </div>
+                                <div className="col-12 col-md-8 col-xl-8 col-lg-8 d-flex flex-row justify-content-center align-items-start">
+                                    <img className="payment-logo mt-4" src={visaLogo} />
+                                    <img className="payment-logo ml-4 mt-4" src={amexLogo} />
+                                    <img className="payment-logo ml-4 mt-4" src={masterLogo} />
+                                </div>
+                            </div>
+                            <div className="row w-100 d-flex flex-row justify-content-center align-items-end">
+                                <span className="button-text terms-text-footer" style={{ color: '#FFFFFF' }}>&copy;{ new Date().getFullYear() }. Tous droits reservés.</span>
+                                <Link to="/terms" className="button-text terms-text-footer ml-5">Termes & Conditions</Link>
+                                <Link to="/legal" className="button-text terms-text-footer ml-2">Mentions Légales</Link>
+                            </div>
+                            </div>
+                        </div>
+                    </Layout>        
                 </Layout>
             </React.Fragment>
         );
