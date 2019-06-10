@@ -83,7 +83,7 @@ class Product extends Component {
                                     }) }
                                 </Card>
                                 <Divider type="vertical" className="divider-main" />
-                                <Link to="/account" className="dashboard-link home-link"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
+                                <Link to="/account" className="dashboard-link home-link home-mobile-button"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ class Product extends Component {
                         <div className="container d-flex flex-row justify-content-center align-items-center mt-5 product-show">
                             <div className="row w-100">
                                 <div className="col-12 col-md-3 col-sm-12 col-xl-3 col-lg-3">
-                                    { this.state.product && <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="product-page-image" /> }
+                                    { this.state.product && <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="product-page-image product-mobile-image" /> }
                                 </div>
                                 <div className="col-12 col-md-9 col-sm-12 col-xl-9 col-lg-9 d-flex flex-column align-items-center">
                                     <h1 className="text-center product-page-title">{this.state.product && this.state.product.name}</h1>
@@ -102,7 +102,7 @@ class Product extends Component {
                                     <div className="w-100 d-flex flex-row product-price-box mb-2">
                                         <span>Prix: {minimum !== 0 && this.state.price === 0 ? minimum.price.toFixed(2) : this.state.price.toFixed(2) }&euro;</span>
                                     </div>
-                                    <div className="w-100 d-flex flex-row product-details">
+                                    <div className="w-100 row d-flex flex-row product-details product-details-mobile">
                                         <div className="col-12 col-md-4 col-lg-4 col-xl-4 px-1">
                                             <Select defaultValue="Poids" className="select-input mt-4 w-100" onChange={this.onWeight}>
                                                 {weights.length > 0 && weights.map((i) => {
@@ -122,9 +122,9 @@ class Product extends Component {
                                         </div>
                                     </div>
                                     <div className="w-100 d-flex flex-row product-page-buttons justify-content-end">
-                                        <div className="col-12 col-md-2 col-lg-2 d-flex flex-row justify-content-end p-0 mt-1">
+                                        <div className="col-12 col-md-2 col-lg-2 d-flex flex-row justify-content-end p-0 mt-1 mobile-cart-button">
                                            { /* <Button className="product-page-bottom-button p-0 px-3" type="danger"><Icon icon="heart" iconSize={10} className="product-home-icon" /></Button> */}
-                                            <Button className="product-page-bottom-button product-page-bottom-button-second ml-1 p-0 px-3 button-text" onClick={this.onCart} type="primary"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon mr-2" />&nbsp;Ajouter au panier</Button>
+                                            <Button className="product-page-bottom-button product-page-bottom-button-second ml-1 p-0 px-3 button-text mobile-cart" onClick={this.onCart} type="primary"><Icon icon="shopping-cart" iconSize={10} className="product-home-icon mr-2" />&nbsp;Ajouter au panier</Button>
                                         </div>
                                     </div>
                                 </div>

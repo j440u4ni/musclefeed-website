@@ -61,7 +61,7 @@ class Home extends Component {
                                         { Array.isArray(this.state.products) && this.state.products.filter((i) => { return i.top === 1; }).length > 0 && this.state.products.filter((i) => { return i.top === 1; }).map((a) => {  const image = this.state.slideshow.filter((b) => { return b.id === a.image_id; });
                                             let details = JSON.parse(a.details); const minimum = (details[details.length-1]).reduce((x, y) => { return x.price > y.price ? y : x; });
                                             return (
-                                                <div key={a.id} className="w-100 d-flex flex-column align-items-center p-0 top-product-section">
+                                                <Link to={`/product/${slugify(a.name)}`} className="product-link"><div key={a.id} className="w-100 d-flex flex-column align-items-center p-0 top-product-section">
                                                     <h4 className="text-center product-identifier mt-1">Top Produits</h4>
                                                     <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="image-thumbnail product-top-image product-top-mobile-image mt-0" />
                                                     <h6 className="text-center product-identifier-title mt-1">{a.name}</h6>
@@ -73,6 +73,7 @@ class Home extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                </Link>
                                             );
                                         })}
                                 </div>
@@ -107,6 +108,13 @@ class Home extends Component {
                                     );
                                 })}
                                 </div>
+                            </div>
+                        </div>
+                        <div className="container d-flex flex-row justify-content-center align-items-center mt-2 ad-boxes-row w-100">
+                            <div className="row w-100">
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center">1</div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center">2</div>
+                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center">3</div>
                             </div>
                         </div>
                         <div className="container-fluid d-flex flex-column justify-content-center align-items-center mt-3 footer-row">

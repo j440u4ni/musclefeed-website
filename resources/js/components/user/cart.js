@@ -72,7 +72,7 @@ class Cart extends Component {
                                     }) }
                                 </Card>
                                 <Divider type="vertical" className="divider-main" />
-                                <Link to="/account" className="dashboard-link home-link"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
+                                <Link to="/account" className="dashboard-link home-link home-mobile-button"><span className="home-link button-link"><Icon icon="user" className="mr-1 mt-2 icon-home" />&nbsp;Mon Compte</span></Link>
                             </div>
                         </div>
                     </div>
@@ -82,26 +82,26 @@ class Cart extends Component {
                             <div className="row w-100">
                                 <div className="col-12 col-md-9 col-xl-9 col-lg-9">
                                     <div elevation={Elevation.TWO} className="h-100 p-1 d-flex flex-row justify-content-center align-items-center">
-                                        <div className="col-12 col-md-9 col-lg-9 h-100 d-flex flex-row justify-content-end align-items-center">
-                                            <div className="d-flex flex-column justify-content-start align-items-start w-100">
+                                        <div className="col-12 col-md-9 col-lg-9 h-100 d-flex flex-row justify-content-end align-items-center mobile-containers-cart-one">
+                                            <div className="d-flex flex-column justify-content-start align-items-start w-100 mobile-w100">
                                                 {this.state.cart.slice(0, 5).map((item) => { const image = this.state.slideshow.filter((b) => { return b.id === item.image; });
                                                     return(
-                                                        <div className="col-12 col-md-12 col-lg-12 d-flex flex-row mt-3" key={item.id}>
-                                                            <div className="col-12 col-md-2 col-sm-2 col-lg-2"><img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="product-cart-image mt-0 mr-1" /></div>
-                                                            <div className="col-12 col-md-4 col-sm-4 col-lg-4 d-flex flex-column justify-content-start align-items-start">
+                                                        <div className="col-12 col-md-12 col-lg-12 d-flex flex-row mt-3 item-mobile-description" key={item.id}>
+                                                            <div className="col-2 col-md-2 col-sm-2 col-lg-2"><img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="product-cart-image mt-0 mr-1" /></div>
+                                                            <div className="col-4 col-md-4 col-sm-4 col-lg-4 d-flex flex-column justify-content-start align-items-start">
                                                                 <span className="product-cart-title">{item.name}</span>
                                                                 <span className="product-quantity-title">Quantité: {item.quantity}</span>
                                                             </div>
-                                                            <div className="col-12 col-md-6 col-sm-6 col-lg-6 d-flex flex-row justify-content-end align-items-start">
+                                                            <div className="col-6 col-md-6 col-sm-6 col-lg-6 d-flex flex-row justify-content-end align-items-start">
                                                                 <BP icon="minus" intent="danger" style={{ position: 'relative' }} onClick={() => { this.onDelete(item.id) }} />
                                                             </div>
                                                         </div>
                                                     );
                                                 })}
                                             </div>
-                                            <Divider type="vertical" style={{ height: '97%', color: '#888888' }} />
+                                            <Divider type="vertical" style={{ height: '97%', color: '#888888' }} className="divider-cart-mobile" />
                                         </div>
-                                        <div className="col-12 col-md-2 col-lg-2 h-100 p-0 d-flex flex-column justify-content-center align-items-start">
+                                        <div className="col-12 col-md-2 col-lg-2 h-100 p-0 d-flex flex-column justify-content-center align-items-start mobile-containers-cart-two">
                                             <div className="row w-100 d-flex flex-row justify-content-center">
                                                 <span className="cart-text-delivery">Frais de livraison: <span className="ml-2">{ this.state.total < 59 ? 8.90 : 0 }&euro;</span></span>
                                             </div>
