@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('owner')->index();
+            $table->integer('status');
             $table->timestamps();
         });
     }

@@ -126,7 +126,7 @@ class Cart extends Component {
                                             <div className="row w-100 d-flex flex-row justify-content-start">
                                                 <span className="cart-text-delivery">Livraison: <span className="">{ this.state.total < 59 ? 8.90 : 0 }&euro;&nbsp; TTC</span></span>
                                             </div>
-                                            <div className="row w-100"><span className="cart-total ml-auto mt-2">Total: {this.state.total < 59 ? this.state.total + 8.9 : this.state.total}&euro;&nbsp;TTC</span></div>
+                                            <div className="row w-100"><span className="cart-total ml-auto mt-2">Total: { this.state.total === 0 ? 0 : this.state.total < 59 ? this.state.total + 8.9 : this.state.total}&euro;&nbsp;TTC</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@ class Cart extends Component {
                                             <div className="col-3 p-1"><BP icon="confirm" fill={true} intent="danger" style={{ marginTop: 0.5 }} /></div>
                                         </div>
                                         <div className={this.props.logged ? "row w-100 flex-row p-1 coupon-box" : "row w-100 flex-row p-1 coupon-box-off"}>
-                                            <BP icon="send-to" text={<span className="button-text">Confirmer</span>} intent="primary" onClick={this.onStepPayment} fill={true} />
+                                            <BP icon="send-to" disabled={this.state.total === 0 ? true : false} text={<span className="button-text">Confirmer</span>} intent="primary" onClick={this.onStepPayment} fill={true} />
                                         </div>
                                     </Card>
                                 </div>

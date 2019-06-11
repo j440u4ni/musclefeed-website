@@ -137,7 +137,7 @@ export function deleteFromCart(logged, cart) {
 export function paymentProcess(token, logged, cart, email, name, credit_name, main_address, secondary_address, city, country, price, phone, stop) {
     return (dispatch) => {
         fetch('https://musclefeed.co/api/v1/payment/process', { method: 'POST', headers : { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ cart: cart, email: email, name, credit_name, main_address, secondary_address, city, country , phone, price, token }) }).then((first) => { return first.json(); })
-            .then((second) => { console.log(second.message);
+            .then((second) => { 
                 if(!second.hasOwnProperty('success')) { dispatch(failure()); message.error(<span className="button-text">Erreur de paiement survenue.</span>); stop(); }
                 else { dispatch(success()); message.success(<span className="button-text">Paiement avec succès.</span>);  window.location.href = "https://musclefeed.co/"; stop(); }
             });
