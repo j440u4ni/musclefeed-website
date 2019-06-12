@@ -43,7 +43,7 @@ class Terms extends Component {
                             <div className="row w-100 row-user-information d-flex flex-row justify-content-end container">
                             </div>
                             <div className="row w-100 row-user-header d-flex flex-row">
-                                <div className="col-12 col-md-1 col-lg-1"><img src={brand} className="brand-site" /></div>
+                                <div className="col-12 col-md-1 col-lg-1"><Link to="/"><img src={brand} className="brand-site" /></Link></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
                                     <div className="shadow-box">
                                         { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.slice(0, 6).map((item) => {

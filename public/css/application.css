@@ -18765,9 +18765,11 @@ a.text-dark:focus {
     left: 80px !important;
   }
 
-  .home-mobile-button {
+  .account-hover-link {
     position: relative;
-    top: -70px;
+    top: -52px;
+    right: -20px;
+    border-color: #ffffff;
   }
 
   .product-details-mobile {
@@ -18848,11 +18850,6 @@ a.text-dark:focus {
     bottom: 50px !important;
   }
 
-  .divider-main {
-    position: relative;
-    display: none !important;
-  }
-
   .button-newsletter-confirm {
     position: relative;
     top: 10px !important;
@@ -18860,6 +18857,11 @@ a.text-dark:focus {
 
   .footer-row {
     height: 250px !important;
+  }
+
+  .button-newsletter-confirm {
+    position: relative;
+    left: 20px;
   }
 }
 
@@ -19058,5 +19060,41 @@ html {
 
 .account-hover-link:hover {
   color: #ffffff;
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 768px) {
+  .footer-other-row {
+    bottom: -100px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .shadow-box {
+    width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    position: relative;
+    top: -30px;
+  }
+
+  .account-hover-link {
+    position: relative;
+    top: -20px;
+  }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {
+  .shadow-box {
+    width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    position: relative;
+    top: -18px;
+  }
+
+  .account-hover-link {
+    position: relative;
+    top: -15px;
+  }
 }
 

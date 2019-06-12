@@ -75,7 +75,7 @@ class Product extends Component {
                             <div className="row w-100 row-user-information d-flex flex-row justify-content-end container">
                             </div>
                             <div className="row w-100 row-user-header d-flex flex-row">
-                                <div className="col-12 col-md-1 col-lg-1"><img src={brand} className="brand-site" /></div>
+                                <div className="col-12 col-md-1 col-lg-1"><Link to="/"><img src={brand} className="brand-site" /></Link></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
                                     <div className="shadow-box">
                                         { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.slice(0, 6).map((item) => {
@@ -93,7 +93,7 @@ class Product extends Component {
                     </Header>
                 <Layout>
                     <Layout className="main-global-page mt-0">
-                        <div className="container d-flex flex-row justify-content-center align-items-center mt-5 product-show">
+                        <div className="container d-flex flex-row justify-content-center align-items-center mt-5 product-show mb-5">
                             <div className="row w-100">
                                 <div className="col-12 col-md-3 col-sm-12 col-xl-3 col-lg-3">
                                     { this.state.product && <img src={`https://musclefeed.co/storage/${image[0].url.split('/')[2]}`} className="product-page-image product-mobile-image" /> }
@@ -133,14 +133,7 @@ class Product extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="container d-flex flex-row justify-content-center align-items-center mt-2 ad-boxes-row w-100">
-                            <div className="row w-100">
-                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
-                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
-                                <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-row justify-content-center align-items-center"></div>
-                            </div>
-                        </div>
-                        <div className="d-flex flex-column justify-content-center align-items-center mt-3 footer-row footer-other-row">
+                        <div className="d-flex flex-column justify-content-center align-items-center footer-row footer-other-row mt-5">
                             <div className="container h-100 p-2">
                             <div className="row w-100 d-flex flex-row justify-content-center align-items-center">
                                 <div className="col-12 col-md-4 col-xl-4 col-lg-4 d-flex flex-column justify-content-center">
