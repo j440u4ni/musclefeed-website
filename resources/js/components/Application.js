@@ -14,6 +14,7 @@ import { Profile } from './user/profile';
 import { Home } from './user/home';
 import { Cart } from './user/cart';
 import { Product } from './user/product';
+import { Terms } from './user/terms';
 
 import { Category } from './user/category';
 import { runnerStore } from './redux/store.application.js';
@@ -30,6 +31,7 @@ export default class Application extends Component {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/categories/:id" component={Category} />
                     <Route exact path="/product/:id" component={Product} />
+                    <Route exact path="/terms" component={Terms} />
 
                     <Route exact path="/cart" component={Cart} />
                     <RouteGuestAdmin exact path="/admin" component={Guard} />

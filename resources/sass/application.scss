@@ -7,6 +7,7 @@
 @import '../fonts/DIN\ Pro/style.css';
 @import '../fonts/Fredoka\ One/style.css';
 
+*:focus { outline-width: none; outline: none; }
 .ant-layout { background: #ffffff; }
 .admin-header { height: 40px; background: #ffffff; }
 .user-header { height: 40px; background: transparent; }
@@ -51,11 +52,12 @@
 .button-text-dashboard { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 12px; }
 .dashboard-link:hover { text-decoration: none; }
 .file-input { position: relative; top: 5px; right: 3px; }
-.brand-site { width: 111px; position: relative; top: -10px; }
-.home-link { color: #ffffff; text-transform: uppercase; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif !important; font-size: 11px; }
+.brand-site { width: 100px; position: relative; top: -40px; }
+.home-link { position: relative; top: -15px; }
+.home-link { color: #ffffff; text-transform: uppercase; font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif !important; font-size: 8px; }
 .home-link:hover { color: #ffffff; }
-.divider-main { position: relative; top: 2px; height: 20px; }
-.icon-home { position: relative; top: 2px; }
+.divider-main { position: relative; top: -20px; height: 30px; }
+.icon-home { position: relative; top: 0px; color: #ffffff; }
 .button-link { border: 2px solid #ffffff; border-radius: 10px; padding: 7px 9px; }
 .button-link { box-shadow: 0 20px 25px -5px rgba(255, 255, 255, .02), 0 10px 10px -5px rgba(255, 255, 255, .04); }
 .button-shadow-link { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, .1), 0 10px 10px -5px rgba(0, 0, 0, .04); }
@@ -72,21 +74,21 @@
 
 .special-background { position: absolute; top: 0px; left: 0px; right: 0px; width: 100vw; height: 100vh; background: #ffffff; z-index: -1; }
 // .special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 120%; background-position: 2px center; border-radius: 0px; }
-.shadow-box { width: 80%; height: 20px; border-radius: 10px;  }
+.shadow-box { width: 80%; height: 20px; border-radius: 10px; position: relative; top: -20px; }
 .shadow-box-account { width: 90%; height: 20px; border-radius: 10px; }
 .row-user-header { height: 45px; position: relative; top: 10px; }
 .row-user-information { position: relative; height: 20px; }
 .row-user-information .info-text { font-size: 11px; color: #ffffff; position: relative; top: -12px; font-family: 'DIN Pro Condensed Medium', Arial, Helvetica, sans-serif; text-transform: uppercase; }
 .row-user-information .info-text strong { font-size: 10px; font-family: 'DIN Pro Condensed Medium', Arial, Helvetica, sans-serif; }
-.menu-link { position: relative; top: -33.5px; font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; }
-.menu-link-hover-text { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; color: #000000; font-size: 12px; }
+.menu-link { position: relative; top: -33.5px; font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 12px; }
+.menu-link-hover-text { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; color: #ffffff; font-size: 12px; }
 .menu-link-hover-text a:hover { text-decoration: none; }
 
 .top-product-section { max-height: 278px; }
 .product-top-image { position: relative; max-height: 200px; left: 10px; }
 .product-bottom-image { position: relative; height: 120px; }
 .fredoka-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px; color: #e4200b; }
-.fredoka-bottom-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; }
+.fredoka-bottom-police { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 12px; color: #e4200b; }
 .product-identifier { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 14px; position: relative; left: 10px; }
 .product-identifier-title { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; position: relative; left: 15px; top: -6px; }
 .product-bottom-identifier-title  { font-family: 'Brandon Grotesque Bold', Arial, Helvetica, sans-serif; font-size: 13px; color: #000000; position: relative; top: -2px; }
@@ -96,7 +98,7 @@
 .title-second-part { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #000000; position: relative; top: 10px; }
 .category-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #000000; position: relative; left: 5px; bottom: 5px; }
 .product-bottom-description-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; color: #707070; position: relative; font-size: 10px; top: -6px; }
-.product-box-home { border-radius: 15px; }
+.product-box-home { border-radius: 0px; }
 .product-bottom-description { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; color: #707077; font-size: 10px; top: -4px; }
 .product-bottom-description { max-height: 45px; }
 
@@ -115,17 +117,17 @@
 .account-cover-image-second { max-height: 320px; position: relative; top: 20vh; }
 .user-information-span span { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 13px; }
 .user-information-span { font-size: 13px; font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; }
-.cart-box { position: absolute; z-index: 1; width: 30px; height: 30px; right: 0px; top: 40px; span { display: none; } .icon-cart { display: block; } }
+.cart-box { position: fixed; z-index: 1; width: 30px; height: 30px; right: 0px; top: 120px; span { display: none; } .icon-cart { display: block; } background: #e4200b; }
 .cart-box:hover { span { display: block; } width: 120px; }
-.cart-box a { color: #000000; }
-.cart-box a:hover { text-decoration: none; color: #000000; text-transform: none; }
+.cart-box a { color: #ffffff; }
+.cart-box a:hover { text-decoration: none; color: #ffffff; text-transform: none; }
 .text-cart { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 12px; }
 
 .profile-edit-icon { position: relative; top: -2px; }
 .profile-edit-title { position: relative; top: -5px; }
 .modal-title { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 16px; }
 .setting-icon { position: relative; top: -4px; }
-.footer-row { background: #001526; }
+.footer-row { background: #e4200b; }
 .cart-container { position: relative; top: 15vh; min-height: 300px; }
 .cart-price-box { position: absolute; top: -5px; right: 0px; height: 50px; width: 100px;}
 .cart-price-global { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; color: #000000; font-size: 25px; }
@@ -143,8 +145,8 @@
 @media only screen and (max-height: 1600px) {
     //.special-background .second-row { height: 100vh; background: url('../images/png/canvas-v2@2x.png') center no-repeat; background-size: 0%; background-position: 2px center; border-radius: 0px; }
     .home-link, .home-link:hover { color: #000000; }
-    .info-text { color: #000000; }
-    .button-link { border: 2px solid #000000; border-radius: 10px; padding: 7px 9px; }
+    .info-text { color: #ffffff; }
+    .button-link { border: 2px solid #ffffff; border-radius: 10px; padding: 7px 9px; }
     .button-link { box-shadow: 0 20px 25px -5px rgba(255, 255, 255, .02), 0 10px 10px -5px rgba(255, 255, 255, .04); }
 }
 @media only screen and (max-width: 1024px) and (min-width: 144px) {
@@ -216,10 +218,26 @@
 .product-quantity-title { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 11px; }
 .ad-boxes-row { position: relative; max-height: 100px; }
 
-.footer-row { width: 100vw; height: 150px; background: #000000; }
+.footer-row { width: 100vw; height: 150px; background: #e4200b; }
 .newsletter-title { font-family: 'Fredoka One Regular', Arial, Helvetica, sans-serif; font-size: 15px; color: #ffffff; }
 .payment-logo { width: 60px; }
 .footer-row { -webkit-box-shadow: 0px -1px 14px -3px rgba(136,136,136,1); -moz-box-shadow: 0px -1px 14px -3px rgba(136,136,136,1); box-shadow: 0px -1px 14px -3px rgba(136,136,136,1); }
 .terms-text-footer { position: relative; bottom: -30px; color: #ffffff; }
 .terms-text-footer:hover { text-decoration: none; color: #ffffff; }
 .footer-other-row { position: absolute; bottom: 0px; }
+.terms-header { width: 100vw; height: 30px; background: #ffffff; }
+
+.tab-pane-text { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 20px; }
+.ant-tabs-tab:active, .ant-tabs-tab:hover, .ant-tabs-nav:active, .ant-tabs-nav:hover { outline: none; outline-width: 0; }
+.text-terms { font-family: 'Brandon Grotesque Light', Arial, Helvetica, sans-serif; font-size: 15px; }
+.title-terms { font-family: 'DIN Pro Condensed Bold', Arial, Helvetica, sans-serif; font-size: 22px; }
+.logo-home { width: 40px; }
+.logo-subtext { font-family: 'Brandon Grotesque Medium', Arial, Helvetica, sans-serif; font-size: 13px; }
+
+// body, html { width: 100vw; height: 120vh; z-index: -4; background: url(../images/png/default-red@2x.png) repeat; position: absolute; top: 0px; right: 0px; }
+body, html { background: url('../images/svg/trianglify.svg') no-repeat; }
+.user-header { background: #e4200b; border-bottom: 1px solid rgba(0, 0, 0, .1); height: 45px; }
+.user-header { -webkit-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.46); -moz-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.46); box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.46); }
+.user-header { position: fixed; width: 100vw; top: 0px; right: 0px; z-index: 20; }
+.account-hover-link { color: #ffffff; font-size: 13px; }
+.account-hover-link:hover { color: #ffffff; }

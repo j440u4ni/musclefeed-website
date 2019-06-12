@@ -46,24 +46,29 @@ class Account extends Component {
     render() {
         return(
             <React.Fragment>
-                 <Layout className="layout-container">
-                 <Header className="user-header">
-                        <div className="container-fluid d-flex flex-column container justify-content-start align-items-center">
+                <div className="background-default"></div>
+                <Layout className="layout-global">
+                    <Card className="cart-box d-flex flex-column align-items-center justify-content-center text-cart px-1" elevation={Elevation.FOUR}>
+                        <Link to="/cart" className="d-flex flex-row align-items-center justify-content-center"><BIcon icon="shopping-cart" className="icon-cart" />&nbsp;<span>Mon panier</span></Link></Card>
+                    <Header className="user-header">
+                        <div className="d-flex flex-column container justify-content-start align-items-center">
+                            <div className="container-fluid">
                             <div className="row w-100 row-user-information d-flex flex-row justify-content-end container">
-                                <span className="info-text"><strong className="mr-2">Service client:</strong> +33 7 66 16 36 22</span>
                             </div>
                             <div className="row w-100 row-user-header d-flex flex-row">
-                                <div className="col-12 col-md-1 col-lg-1"><Link to="/"><img src={imageBrand} className="brand-site" /></Link></div>
+                                <div className="col-12 col-md-1 col-lg-1"><img src={imageBrand} className="brand-site" /></div>
                                 <div className="col-12 col-md-11 col-lg-11 d-flex flex-row justify-content-end align-items-center">
-                                    <Card interactive={false} elevation={Elevation.ONE} className="shadow-box-account">
+                                    <div className="shadow-box">
                                         { Array.isArray(this.state.categories) && this.state.categories.length >= 1 && this.state.categories.slice(0, 6).map((item) => {
                                             if(item.category_id === 0 && this.state.categories.filter((i) => { return i.category_id === item.id }).length > 0 ) { return( 
                                                 <Dropdown key={item.id} className="menu-link" overlay={<Menu>{this.state.categories.filter((i) => { return i.category_id === item.id; }).map((a) => { return <Menu.Item key={a.id} className="menu-link-hover-text"><Link to={`/categories/${slugify(a.name)}`}>{a.name}</Link></Menu.Item>}) }</Menu>}>
                                                     <BA type="link"><span>{item.name}</span></BA>
                                                 </Dropdown>); }
                                         }) }
-                                    </Card>
+                                    </div>
+                                    <Link to="/account" className="dashboard-link home-link home-mobile-button account-hover-link"><span className="home-link button-link account-hover-link"><BIcon icon="user" className="mr-1 icon-home" />&nbsp;Mon Compte</span></Link>
                                 </div>
+                            </div>
                             </div>
                         </div>
                     </Header>
